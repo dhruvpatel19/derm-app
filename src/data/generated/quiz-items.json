@@ -1,0 +1,2345 @@
+[
+  {
+    "id": "quiz-desc-1668ed83-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40c-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0003-4000-8000-000000000001",
+    "conditionLabel": "Basal Cell Carcinoma",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: face",
+    "answers": [
+      {
+        "id": "correct-0",
+        "text": "papule",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-1",
+        "text": "nodule",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-2",
+        "text": "telangiectasia",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-3",
+        "text": "growing",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-4",
+        "text": "changing",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "distractor-0",
+        "text": "rolled borders",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Basal Cell Carcinoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "central ulceration",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Basal Cell Carcinoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "translucent surface",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Basal Cell Carcinoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [
+      "papule",
+      "nodule",
+      "telangiectasia",
+      "growing",
+      "changing",
+      "bleeding",
+      "elevated",
+      "diameter 8x6mm"
+    ],
+    "forbiddenAssumptions": [
+      "rolled borders",
+      "central ulceration",
+      "translucent surface"
+    ],
+    "tags": [
+      "skin_cancer",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.856Z"
+  },
+  {
+    "id": "quiz-dx-15bbbc5d-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40c-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0003-4000-8000-000000000001",
+    "conditionLabel": "Basal Cell Carcinoma",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: face",
+    "answers": [
+      {
+        "id": "distractor-1",
+        "text": "Melanoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Melanoma may share some features, the specific morphology visible in this image is more consistent with Basal Cell Carcinoma."
+      },
+      {
+        "id": "correct",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Basal Cell Carcinoma. Key features: papule, nodule, telangiectasia."
+      },
+      {
+        "id": "distractor-2",
+        "text": "Seborrheic Keratosis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Seborrheic Keratosis may share some features, the specific morphology visible in this image is more consistent with Basal Cell Carcinoma."
+      },
+      {
+        "id": "distractor-0",
+        "text": "Squamous Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Squamous Cell Carcinoma may share some features, the specific morphology visible in this image is more consistent with Basal Cell Carcinoma."
+      }
+    ],
+    "confirmedMorphology": [
+      "papule",
+      "nodule",
+      "telangiectasia"
+    ],
+    "forbiddenAssumptions": [
+      "pearly papule",
+      "arborizing telangiectasia",
+      "rolled borders",
+      "central ulceration",
+      "translucent surface"
+    ],
+    "tags": [
+      "skin_cancer",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.856Z"
+  },
+  {
+    "id": "quiz-ddx-34122292-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40c-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0003-4000-8000-000000000001",
+    "conditionLabel": "Basal Cell Carcinoma",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: face",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Basal Cell Carcinoma."
+      },
+      {
+        "id": "option-1",
+        "text": "Squamous Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Basal Cell Carcinoma."
+      },
+      {
+        "id": "option-2",
+        "text": "Melanoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Basal Cell Carcinoma."
+      },
+      {
+        "id": "option-3",
+        "text": "Seborrheic Keratosis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Basal Cell Carcinoma."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [
+      "papule",
+      "nodule",
+      "telangiectasia"
+    ],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "skin_cancer",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.856Z"
+  },
+  {
+    "id": "quiz-bx-453c4907-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40c-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0003-4000-8000-000000000001",
+    "conditionLabel": "Basal Cell Carcinoma",
+    "questionType": "biopsy_decision",
+    "difficulty": "advanced",
+    "stem": "Given the clinical suspicion for Basal Cell Carcinoma, what is the appropriate next step regarding tissue diagnosis?",
+    "context": "Body site: face",
+    "answers": [
+      {
+        "id": "biopsy-yes",
+        "text": "Biopsy is indicated for histopathologic confirmation",
+        "isCorrect": true,
+        "explanation": "Correct. Biopsy confirms the diagnosis and guides treatment planning for Basal Cell Carcinoma."
+      },
+      {
+        "id": "treat-empiric",
+        "text": "Treat empirically without biopsy",
+        "isCorrect": false,
+        "explanation": "Incorrect. For suspected skin malignancy, histopathologic confirmation should precede definitive treatment."
+      },
+      {
+        "id": "observe-only",
+        "text": "No biopsy needed, clinical diagnosis is sufficient",
+        "isCorrect": false,
+        "explanation": "Incorrect. Skin cancers require histopathologic confirmation for accurate subtyping and treatment planning."
+      },
+      {
+        "id": "topical-trial",
+        "text": "Trial of topical treatment first",
+        "isCorrect": false,
+        "explanation": "Incorrect. Delaying biopsy of a suspected malignancy for a topical treatment trial is inappropriate."
+      }
+    ],
+    "confirmedMorphology": [
+      "papule",
+      "nodule",
+      "telangiectasia"
+    ],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "skin_cancer",
+      "biopsy",
+      "skin-cancer",
+      "management"
+    ],
+    "createdAt": "2026-03-29T17:21:39.856Z"
+  },
+  {
+    "id": "quiz-desc-7557da1e-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40d-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0004-4000-8000-000000000001",
+    "conditionLabel": "Melanoma",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "correct-0",
+        "text": "pigmented",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-1",
+        "text": "growing",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-2",
+        "text": "changing",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-3",
+        "text": "diameter 14x10mm",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "distractor-0",
+        "text": "asymmetry",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Melanoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "border irregularity",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Melanoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "color variegation",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Melanoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [
+      "pigmented",
+      "growing",
+      "changing",
+      "diameter 14x10mm"
+    ],
+    "forbiddenAssumptions": [
+      "asymmetry",
+      "border irregularity",
+      "color variegation",
+      "diameter >6mm",
+      "evolution",
+      "ulceration"
+    ],
+    "tags": [
+      "skin_cancer",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.856Z"
+  },
+  {
+    "id": "quiz-dx-770e58fc-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40d-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0004-4000-8000-000000000001",
+    "conditionLabel": "Melanoma",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "correct",
+        "text": "Melanoma",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Melanoma. Key features: pigmented."
+      },
+      {
+        "id": "distractor-0",
+        "text": "Seborrheic Keratosis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Seborrheic Keratosis may share some features, the specific morphology visible in this image is more consistent with Melanoma."
+      },
+      {
+        "id": "distractor-2",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Basal Cell Carcinoma may share some features, the specific morphology visible in this image is more consistent with Melanoma."
+      },
+      {
+        "id": "distractor-1",
+        "text": "Dysplastic Nevus",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Dysplastic Nevus may share some features, the specific morphology visible in this image is more consistent with Melanoma."
+      }
+    ],
+    "confirmedMorphology": [
+      "pigmented"
+    ],
+    "forbiddenAssumptions": [
+      "asymmetry",
+      "border irregularity",
+      "color variegation",
+      "diameter >6mm",
+      "evolution",
+      "ulceration"
+    ],
+    "tags": [
+      "skin_cancer",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.856Z"
+  },
+  {
+    "id": "quiz-ddx-2caced73-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40d-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0004-4000-8000-000000000001",
+    "conditionLabel": "Melanoma",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Melanoma",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Melanoma."
+      },
+      {
+        "id": "option-1",
+        "text": "Seborrheic Keratosis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Melanoma."
+      },
+      {
+        "id": "option-2",
+        "text": "Dysplastic Nevus",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Melanoma."
+      },
+      {
+        "id": "option-3",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Melanoma."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [
+      "pigmented"
+    ],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "skin_cancer",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.856Z"
+  },
+  {
+    "id": "quiz-bx-11e1a7d8-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40d-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0004-4000-8000-000000000001",
+    "conditionLabel": "Melanoma",
+    "questionType": "biopsy_decision",
+    "difficulty": "advanced",
+    "stem": "This lesion is suspicious for melanoma. What is the most appropriate biopsy technique?",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "excisional",
+        "text": "Excisional biopsy with 1-3mm margins",
+        "isCorrect": true,
+        "explanation": "Correct. Excisional biopsy is the gold standard for suspected melanoma, preserving Breslow depth measurement."
+      },
+      {
+        "id": "shave",
+        "text": "Shave biopsy",
+        "isCorrect": false,
+        "explanation": "Incorrect. Shave biopsy may transect the deepest portion, making accurate Breslow depth measurement impossible. This is a dangerous approach for suspected melanoma."
+      },
+      {
+        "id": "observe",
+        "text": "Dermoscopic monitoring in 3 months",
+        "isCorrect": false,
+        "explanation": "Incorrect. With features suspicious for melanoma, observation alone is inappropriate. Biopsy is indicated."
+      },
+      {
+        "id": "wide-excision",
+        "text": "Wide local excision with 2cm margins",
+        "isCorrect": false,
+        "explanation": "Incorrect. Diagnostic biopsy must precede definitive excision. Margins are determined by Breslow depth."
+      }
+    ],
+    "confirmedMorphology": [
+      "pigmented"
+    ],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "skin_cancer",
+      "biopsy",
+      "skin-cancer",
+      "management"
+    ],
+    "createdAt": "2026-03-29T17:21:39.856Z"
+  },
+  {
+    "id": "quiz-desc-0118a1bf-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40e-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0008-4000-8000-000000000001",
+    "conditionLabel": "Squamous Cell Carcinoma",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: face",
+    "answers": [
+      {
+        "id": "correct-0",
+        "text": "scale",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-1",
+        "text": "keratotic",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-2",
+        "text": "papule",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-3",
+        "text": "plaque",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-4",
+        "text": "growing",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "distractor-0",
+        "text": "cutaneous horn",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Squamous Cell Carcinoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "indurated base",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Squamous Cell Carcinoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "ulceration",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Squamous Cell Carcinoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [
+      "scale",
+      "keratotic",
+      "papule",
+      "plaque",
+      "growing",
+      "painful",
+      "changing",
+      "bleeding",
+      "elevated",
+      "diameter 12x10mm"
+    ],
+    "forbiddenAssumptions": [
+      "cutaneous horn",
+      "indurated base",
+      "ulceration"
+    ],
+    "tags": [
+      "skin_cancer",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-dx-279f0a65-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40e-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0008-4000-8000-000000000001",
+    "conditionLabel": "Squamous Cell Carcinoma",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: face",
+    "answers": [
+      {
+        "id": "distractor-0",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Basal Cell Carcinoma may share some features, the specific morphology visible in this image is more consistent with Squamous Cell Carcinoma."
+      },
+      {
+        "id": "distractor-1",
+        "text": "Actinic Keratosis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Actinic Keratosis may share some features, the specific morphology visible in this image is more consistent with Squamous Cell Carcinoma."
+      },
+      {
+        "id": "correct",
+        "text": "Squamous Cell Carcinoma",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Squamous Cell Carcinoma. Key features: scale, keratotic, papule, plaque."
+      },
+      {
+        "id": "distractor-2",
+        "text": "Keratoacanthoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Keratoacanthoma may share some features, the specific morphology visible in this image is more consistent with Squamous Cell Carcinoma."
+      }
+    ],
+    "confirmedMorphology": [
+      "scale",
+      "keratotic",
+      "papule",
+      "plaque"
+    ],
+    "forbiddenAssumptions": [
+      "firm keratotic nodule",
+      "adherent thick scale",
+      "cutaneous horn",
+      "indurated base",
+      "ulceration"
+    ],
+    "tags": [
+      "skin_cancer",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-ddx-2547b854-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40e-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0008-4000-8000-000000000001",
+    "conditionLabel": "Squamous Cell Carcinoma",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: face",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Squamous Cell Carcinoma",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Squamous Cell Carcinoma."
+      },
+      {
+        "id": "option-1",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Squamous Cell Carcinoma."
+      },
+      {
+        "id": "option-2",
+        "text": "Actinic Keratosis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Squamous Cell Carcinoma."
+      },
+      {
+        "id": "option-3",
+        "text": "Keratoacanthoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Squamous Cell Carcinoma."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [
+      "scale",
+      "keratotic",
+      "papule",
+      "plaque"
+    ],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "skin_cancer",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-bx-68ff98b7-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40e-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0008-4000-8000-000000000001",
+    "conditionLabel": "Squamous Cell Carcinoma",
+    "questionType": "biopsy_decision",
+    "difficulty": "advanced",
+    "stem": "Given the clinical suspicion for Squamous Cell Carcinoma, what is the appropriate next step regarding tissue diagnosis?",
+    "context": "Body site: face",
+    "answers": [
+      {
+        "id": "biopsy-yes",
+        "text": "Biopsy is indicated for histopathologic confirmation",
+        "isCorrect": true,
+        "explanation": "Correct. Biopsy confirms the diagnosis and guides treatment planning for Squamous Cell Carcinoma."
+      },
+      {
+        "id": "treat-empiric",
+        "text": "Treat empirically without biopsy",
+        "isCorrect": false,
+        "explanation": "Incorrect. For suspected skin malignancy, histopathologic confirmation should precede definitive treatment."
+      },
+      {
+        "id": "observe-only",
+        "text": "No biopsy needed, clinical diagnosis is sufficient",
+        "isCorrect": false,
+        "explanation": "Incorrect. Skin cancers require histopathologic confirmation for accurate subtyping and treatment planning."
+      },
+      {
+        "id": "topical-trial",
+        "text": "Trial of topical treatment first",
+        "isCorrect": false,
+        "explanation": "Incorrect. Delaying biopsy of a suspected malignancy for a topical treatment trial is inappropriate."
+      }
+    ],
+    "confirmedMorphology": [
+      "scale",
+      "keratotic",
+      "papule",
+      "plaque"
+    ],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "skin_cancer",
+      "biopsy",
+      "skin-cancer",
+      "management"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-desc-732696a0-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40f-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0008-4000-8000-000000000001",
+    "conditionLabel": "Actinic Keratosis",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: scalp",
+    "answers": [
+      {
+        "id": "correct-0",
+        "text": "scale",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-1",
+        "text": "keratotic",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-2",
+        "text": "pruritic",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-3",
+        "text": "diameter 6x5mm",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "distractor-0",
+        "text": "cutaneous horn",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Squamous Cell Carcinoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "indurated base",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Squamous Cell Carcinoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "ulceration",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Squamous Cell Carcinoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [
+      "scale",
+      "keratotic",
+      "pruritic",
+      "diameter 6x5mm"
+    ],
+    "forbiddenAssumptions": [
+      "cutaneous horn",
+      "indurated base",
+      "ulceration"
+    ],
+    "tags": [
+      "skin_cancer",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-dx-39b3923a-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40f-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0008-4000-8000-000000000001",
+    "conditionLabel": "Actinic Keratosis",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: scalp",
+    "answers": [
+      {
+        "id": "distractor-2",
+        "text": "Keratoacanthoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Keratoacanthoma may share some features, the specific morphology visible in this image is more consistent with Squamous Cell Carcinoma."
+      },
+      {
+        "id": "distractor-1",
+        "text": "Actinic Keratosis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Actinic Keratosis may share some features, the specific morphology visible in this image is more consistent with Squamous Cell Carcinoma."
+      },
+      {
+        "id": "distractor-0",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Basal Cell Carcinoma may share some features, the specific morphology visible in this image is more consistent with Squamous Cell Carcinoma."
+      },
+      {
+        "id": "correct",
+        "text": "Squamous Cell Carcinoma",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Squamous Cell Carcinoma. Key features: scale, keratotic."
+      }
+    ],
+    "confirmedMorphology": [
+      "scale",
+      "keratotic"
+    ],
+    "forbiddenAssumptions": [
+      "firm keratotic nodule",
+      "adherent thick scale",
+      "cutaneous horn",
+      "indurated base",
+      "ulceration"
+    ],
+    "tags": [
+      "skin_cancer",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-ddx-1de28335-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40f-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0008-4000-8000-000000000001",
+    "conditionLabel": "Actinic Keratosis",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: scalp",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Squamous Cell Carcinoma",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Squamous Cell Carcinoma."
+      },
+      {
+        "id": "option-1",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Squamous Cell Carcinoma."
+      },
+      {
+        "id": "option-2",
+        "text": "Actinic Keratosis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Squamous Cell Carcinoma."
+      },
+      {
+        "id": "option-3",
+        "text": "Keratoacanthoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Squamous Cell Carcinoma."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [
+      "scale",
+      "keratotic"
+    ],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "skin_cancer",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-bx-3fe2766a-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40f-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0008-4000-8000-000000000001",
+    "conditionLabel": "Actinic Keratosis",
+    "questionType": "biopsy_decision",
+    "difficulty": "advanced",
+    "stem": "Given the clinical suspicion for Squamous Cell Carcinoma, what is the appropriate next step regarding tissue diagnosis?",
+    "context": "Body site: scalp",
+    "answers": [
+      {
+        "id": "biopsy-yes",
+        "text": "Biopsy is indicated for histopathologic confirmation",
+        "isCorrect": true,
+        "explanation": "Correct. Biopsy confirms the diagnosis and guides treatment planning for Squamous Cell Carcinoma."
+      },
+      {
+        "id": "treat-empiric",
+        "text": "Treat empirically without biopsy",
+        "isCorrect": false,
+        "explanation": "Incorrect. For suspected skin malignancy, histopathologic confirmation should precede definitive treatment."
+      },
+      {
+        "id": "observe-only",
+        "text": "No biopsy needed, clinical diagnosis is sufficient",
+        "isCorrect": false,
+        "explanation": "Incorrect. Skin cancers require histopathologic confirmation for accurate subtyping and treatment planning."
+      },
+      {
+        "id": "topical-trial",
+        "text": "Trial of topical treatment first",
+        "isCorrect": false,
+        "explanation": "Incorrect. Delaying biopsy of a suspected malignancy for a topical treatment trial is inappropriate."
+      }
+    ],
+    "confirmedMorphology": [
+      "scale",
+      "keratotic"
+    ],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "skin_cancer",
+      "biopsy",
+      "skin-cancer",
+      "management"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-desc-01788617-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c410-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0009-4000-8000-000000000001",
+    "conditionLabel": "Seborrheic Keratosis",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "correct-0",
+        "text": "papule",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-1",
+        "text": "verrucous",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-2",
+        "text": "pigmented",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-3",
+        "text": "growing",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "correct-4",
+        "text": "elevated",
+        "isCorrect": true,
+        "explanation": "This feature is directly visible in this specific image."
+      },
+      {
+        "id": "distractor-0",
+        "text": "stuck-on appearance",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Seborrheic Keratosis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "waxy surface",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Seborrheic Keratosis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "horn cysts",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Seborrheic Keratosis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [
+      "papule",
+      "verrucous",
+      "pigmented",
+      "growing",
+      "elevated",
+      "diameter 15x12mm"
+    ],
+    "forbiddenAssumptions": [
+      "stuck-on appearance",
+      "waxy surface",
+      "horn cysts",
+      "well-demarcated"
+    ],
+    "tags": [
+      "benign_lesion",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-dx-7b477ff1-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c410-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0009-4000-8000-000000000001",
+    "conditionLabel": "Seborrheic Keratosis",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "distractor-2",
+        "text": "Squamous Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Squamous Cell Carcinoma may share some features, the specific morphology visible in this image is more consistent with Seborrheic Keratosis."
+      },
+      {
+        "id": "correct",
+        "text": "Seborrheic Keratosis",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Seborrheic Keratosis. Key features: papule, verrucous, pigmented."
+      },
+      {
+        "id": "distractor-1",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Basal Cell Carcinoma may share some features, the specific morphology visible in this image is more consistent with Seborrheic Keratosis."
+      },
+      {
+        "id": "distractor-0",
+        "text": "Melanoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Melanoma may share some features, the specific morphology visible in this image is more consistent with Seborrheic Keratosis."
+      }
+    ],
+    "confirmedMorphology": [
+      "papule",
+      "verrucous",
+      "pigmented"
+    ],
+    "forbiddenAssumptions": [
+      "stuck-on appearance",
+      "waxy surface",
+      "verrucous surface",
+      "horn cysts",
+      "well-demarcated"
+    ],
+    "tags": [
+      "benign_lesion",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-ddx-3805b702-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c410-4000-8000-padufes20PAD",
+    "datasetSource": "pad-ufes-20",
+    "conditionId": "c0000001-0009-4000-8000-000000000001",
+    "conditionLabel": "Seborrheic Keratosis",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Seborrheic Keratosis",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Seborrheic Keratosis."
+      },
+      {
+        "id": "option-1",
+        "text": "Melanoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Seborrheic Keratosis."
+      },
+      {
+        "id": "option-2",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Seborrheic Keratosis."
+      },
+      {
+        "id": "option-3",
+        "text": "Squamous Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Seborrheic Keratosis."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [
+      "papule",
+      "verrucous",
+      "pigmented"
+    ],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "benign_lesion",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-desc-6104ca22-4000-8000-scinimg6ec1a",
+    "imageAssetId": "scin-img-6ec1a531-4000-8000-scinSCIN0001",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0001-4000-8000-000000000001",
+    "conditionLabel": "Psoriasis",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: upper_extremity",
+    "answers": [
+      {
+        "id": "distractor-0",
+        "text": "well-demarcated borders",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Plaque Psoriasis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "silvery-white scale",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Plaque Psoriasis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "erythematous plaque",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Plaque Psoriasis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "well-demarcated borders",
+      "silvery-white scale",
+      "erythematous plaque",
+      "Auspitz sign",
+      "nail pitting",
+      "extensor distribution"
+    ],
+    "tags": [
+      "papulosquamous",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-dx-0184c52e-4000-8000-scinimg6ec1a",
+    "imageAssetId": "scin-img-6ec1a531-4000-8000-scinSCIN0001",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0001-4000-8000-000000000001",
+    "conditionLabel": "Psoriasis",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: upper_extremity",
+    "answers": [
+      {
+        "id": "distractor-2",
+        "text": "Seborrheic Dermatitis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Seborrheic Dermatitis may share some features, the specific morphology visible in this image is more consistent with Plaque Psoriasis."
+      },
+      {
+        "id": "distractor-1",
+        "text": "Tinea Corporis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Tinea Corporis may share some features, the specific morphology visible in this image is more consistent with Plaque Psoriasis."
+      },
+      {
+        "id": "distractor-0",
+        "text": "Atopic Dermatitis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Atopic Dermatitis may share some features, the specific morphology visible in this image is more consistent with Plaque Psoriasis."
+      },
+      {
+        "id": "correct",
+        "text": "Plaque Psoriasis",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Plaque Psoriasis. Key features: see annotation."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "well-demarcated borders",
+      "silvery-white scale",
+      "erythematous plaque",
+      "Auspitz sign",
+      "nail pitting",
+      "extensor distribution"
+    ],
+    "tags": [
+      "papulosquamous",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-ddx-649936fb-4000-8000-scinimg6ec1a",
+    "imageAssetId": "scin-img-6ec1a531-4000-8000-scinSCIN0001",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0001-4000-8000-000000000001",
+    "conditionLabel": "Psoriasis",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: upper_extremity",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Plaque Psoriasis",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Plaque Psoriasis."
+      },
+      {
+        "id": "option-1",
+        "text": "Atopic Dermatitis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Plaque Psoriasis."
+      },
+      {
+        "id": "option-2",
+        "text": "Tinea Corporis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Plaque Psoriasis."
+      },
+      {
+        "id": "option-3",
+        "text": "Seborrheic Dermatitis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Plaque Psoriasis."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "papulosquamous",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-desc-5953b956-4000-8000-scinimg64cb4",
+    "imageAssetId": "scin-img-64cb4bd1-4000-8000-scinSCIN0002",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0002-4000-8000-000000000001",
+    "conditionLabel": "Atopic dermatitis",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: upper_extremity",
+    "answers": [
+      {
+        "id": "distractor-0",
+        "text": "poorly demarcated borders",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Atopic Dermatitis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "fine scale",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Atopic Dermatitis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "lichenification",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Atopic Dermatitis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "poorly demarcated borders",
+      "fine scale",
+      "lichenification",
+      "excoriations",
+      "flexural distribution",
+      "xerosis"
+    ],
+    "tags": [
+      "eczematous",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-dx-7b3f3fb6-4000-8000-scinimg64cb4",
+    "imageAssetId": "scin-img-64cb4bd1-4000-8000-scinSCIN0002",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0002-4000-8000-000000000001",
+    "conditionLabel": "Atopic dermatitis",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: upper_extremity",
+    "answers": [
+      {
+        "id": "distractor-2",
+        "text": "Tinea Corporis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Tinea Corporis may share some features, the specific morphology visible in this image is more consistent with Atopic Dermatitis."
+      },
+      {
+        "id": "distractor-0",
+        "text": "Plaque Psoriasis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Plaque Psoriasis may share some features, the specific morphology visible in this image is more consistent with Atopic Dermatitis."
+      },
+      {
+        "id": "distractor-1",
+        "text": "Contact Dermatitis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Contact Dermatitis may share some features, the specific morphology visible in this image is more consistent with Atopic Dermatitis."
+      },
+      {
+        "id": "correct",
+        "text": "Atopic Dermatitis",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Atopic Dermatitis. Key features: see annotation."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "poorly demarcated borders",
+      "fine scale",
+      "lichenification",
+      "excoriations",
+      "flexural distribution",
+      "xerosis"
+    ],
+    "tags": [
+      "eczematous",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-ddx-66d0bf8d-4000-8000-scinimg64cb4",
+    "imageAssetId": "scin-img-64cb4bd1-4000-8000-scinSCIN0002",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0002-4000-8000-000000000001",
+    "conditionLabel": "Atopic dermatitis",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: upper_extremity",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Atopic Dermatitis",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Atopic Dermatitis."
+      },
+      {
+        "id": "option-1",
+        "text": "Plaque Psoriasis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Atopic Dermatitis."
+      },
+      {
+        "id": "option-2",
+        "text": "Contact Dermatitis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Atopic Dermatitis."
+      },
+      {
+        "id": "option-3",
+        "text": "Tinea Corporis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Atopic Dermatitis."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "eczematous",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-desc-5939e098-4000-8000-scinimg38583",
+    "imageAssetId": "scin-img-38583cd3-4000-8000-scinSCIN0003",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0004-4000-8000-000000000001",
+    "conditionLabel": "Melanoma",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "distractor-0",
+        "text": "asymmetry",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Melanoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "border irregularity",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Melanoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "color variegation",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Melanoma but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "asymmetry",
+      "border irregularity",
+      "color variegation",
+      "diameter >6mm",
+      "evolution",
+      "ulceration"
+    ],
+    "tags": [
+      "skin_cancer",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-dx-3f31e9dc-4000-8000-scinimg38583",
+    "imageAssetId": "scin-img-38583cd3-4000-8000-scinSCIN0003",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0004-4000-8000-000000000001",
+    "conditionLabel": "Melanoma",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "distractor-2",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Basal Cell Carcinoma may share some features, the specific morphology visible in this image is more consistent with Melanoma."
+      },
+      {
+        "id": "distractor-0",
+        "text": "Seborrheic Keratosis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Seborrheic Keratosis may share some features, the specific morphology visible in this image is more consistent with Melanoma."
+      },
+      {
+        "id": "correct",
+        "text": "Melanoma",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Melanoma. Key features: see annotation."
+      },
+      {
+        "id": "distractor-1",
+        "text": "Dysplastic Nevus",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Dysplastic Nevus may share some features, the specific morphology visible in this image is more consistent with Melanoma."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "asymmetry",
+      "border irregularity",
+      "color variegation",
+      "diameter >6mm",
+      "evolution",
+      "ulceration"
+    ],
+    "tags": [
+      "skin_cancer",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-ddx-0312aefb-4000-8000-scinimg38583",
+    "imageAssetId": "scin-img-38583cd3-4000-8000-scinSCIN0003",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0004-4000-8000-000000000001",
+    "conditionLabel": "Melanoma",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Melanoma",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Melanoma."
+      },
+      {
+        "id": "option-1",
+        "text": "Seborrheic Keratosis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Melanoma."
+      },
+      {
+        "id": "option-2",
+        "text": "Dysplastic Nevus",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Melanoma."
+      },
+      {
+        "id": "option-3",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Melanoma."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "skin_cancer",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-bx-57d31574-4000-8000-scinimg38583",
+    "imageAssetId": "scin-img-38583cd3-4000-8000-scinSCIN0003",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0004-4000-8000-000000000001",
+    "conditionLabel": "Melanoma",
+    "questionType": "biopsy_decision",
+    "difficulty": "advanced",
+    "stem": "This lesion is suspicious for melanoma. What is the most appropriate biopsy technique?",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "excisional",
+        "text": "Excisional biopsy with 1-3mm margins",
+        "isCorrect": true,
+        "explanation": "Correct. Excisional biopsy is the gold standard for suspected melanoma, preserving Breslow depth measurement."
+      },
+      {
+        "id": "shave",
+        "text": "Shave biopsy",
+        "isCorrect": false,
+        "explanation": "Incorrect. Shave biopsy may transect the deepest portion, making accurate Breslow depth measurement impossible. This is a dangerous approach for suspected melanoma."
+      },
+      {
+        "id": "observe",
+        "text": "Dermoscopic monitoring in 3 months",
+        "isCorrect": false,
+        "explanation": "Incorrect. With features suspicious for melanoma, observation alone is inappropriate. Biopsy is indicated."
+      },
+      {
+        "id": "wide-excision",
+        "text": "Wide local excision with 2cm margins",
+        "isCorrect": false,
+        "explanation": "Incorrect. Diagnostic biopsy must precede definitive excision. Margins are determined by Breslow depth."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "skin_cancer",
+      "biopsy",
+      "skin-cancer",
+      "management"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-desc-0a621b95-4000-8000-scinimg0be52",
+    "imageAssetId": "scin-img-0be52dd5-4000-8000-scinSCIN0004",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0005-4000-8000-000000000001",
+    "conditionLabel": "Tinea corporis",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "distractor-0",
+        "text": "annular plaque",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Tinea Corporis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "central clearing",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Tinea Corporis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "raised scaly border",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Tinea Corporis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "annular plaque",
+      "central clearing",
+      "raised scaly border",
+      "trailing scale",
+      "pruritic"
+    ],
+    "tags": [
+      "infection",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-dx-372c7a1f-4000-8000-scinimg0be52",
+    "imageAssetId": "scin-img-0be52dd5-4000-8000-scinSCIN0004",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0005-4000-8000-000000000001",
+    "conditionLabel": "Tinea corporis",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "distractor-0",
+        "text": "Plaque Psoriasis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Plaque Psoriasis may share some features, the specific morphology visible in this image is more consistent with Tinea Corporis."
+      },
+      {
+        "id": "distractor-1",
+        "text": "Granuloma Annulare",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Granuloma Annulare may share some features, the specific morphology visible in this image is more consistent with Tinea Corporis."
+      },
+      {
+        "id": "correct",
+        "text": "Tinea Corporis",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Tinea Corporis. Key features: see annotation."
+      },
+      {
+        "id": "distractor-2",
+        "text": "Nummular Eczema",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Nummular Eczema may share some features, the specific morphology visible in this image is more consistent with Tinea Corporis."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "annular plaque",
+      "central clearing",
+      "raised scaly border",
+      "trailing scale",
+      "pruritic"
+    ],
+    "tags": [
+      "infection",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-ddx-58d007c8-4000-8000-scinimg0be52",
+    "imageAssetId": "scin-img-0be52dd5-4000-8000-scinSCIN0004",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0005-4000-8000-000000000001",
+    "conditionLabel": "Tinea corporis",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Tinea Corporis",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Tinea Corporis."
+      },
+      {
+        "id": "option-1",
+        "text": "Plaque Psoriasis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Tinea Corporis."
+      },
+      {
+        "id": "option-2",
+        "text": "Granuloma Annulare",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Tinea Corporis."
+      },
+      {
+        "id": "option-3",
+        "text": "Nummular Eczema",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Tinea Corporis."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "infection",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-desc-2528b2b4-4000-8000-scinimg208de",
+    "imageAssetId": "scin-img-208de129-4000-8000-scinSCIN0005",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0007-4000-8000-000000000001",
+    "conditionLabel": "Acne vulgaris",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: face",
+    "answers": [
+      {
+        "id": "distractor-0",
+        "text": "comedones",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Acne Vulgaris but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "papules",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Acne Vulgaris but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "pustules",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Acne Vulgaris but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "comedones",
+      "papules",
+      "pustules",
+      "nodules",
+      "T-zone distribution"
+    ],
+    "tags": [
+      "acne_rosacea",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-dx-50c325d8-4000-8000-scinimg208de",
+    "imageAssetId": "scin-img-208de129-4000-8000-scinSCIN0005",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0007-4000-8000-000000000001",
+    "conditionLabel": "Acne vulgaris",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: face",
+    "answers": [
+      {
+        "id": "correct",
+        "text": "Acne Vulgaris",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Acne Vulgaris. Key features: see annotation."
+      },
+      {
+        "id": "distractor-2",
+        "text": "Perioral Dermatitis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Perioral Dermatitis may share some features, the specific morphology visible in this image is more consistent with Acne Vulgaris."
+      },
+      {
+        "id": "distractor-0",
+        "text": "Rosacea",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Rosacea may share some features, the specific morphology visible in this image is more consistent with Acne Vulgaris."
+      },
+      {
+        "id": "distractor-1",
+        "text": "Folliculitis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Folliculitis may share some features, the specific morphology visible in this image is more consistent with Acne Vulgaris."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "comedones",
+      "papules",
+      "pustules",
+      "nodules",
+      "T-zone distribution"
+    ],
+    "tags": [
+      "acne_rosacea",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-ddx-6dd0c4af-4000-8000-scinimg208de",
+    "imageAssetId": "scin-img-208de129-4000-8000-scinSCIN0005",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0007-4000-8000-000000000001",
+    "conditionLabel": "Acne vulgaris",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: face",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Acne Vulgaris",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Acne Vulgaris."
+      },
+      {
+        "id": "option-1",
+        "text": "Rosacea",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Acne Vulgaris."
+      },
+      {
+        "id": "option-2",
+        "text": "Folliculitis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Acne Vulgaris."
+      },
+      {
+        "id": "option-3",
+        "text": "Perioral Dermatitis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Acne Vulgaris."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "acne_rosacea",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-desc-3928fa6d-4000-8000-scinimg4d00f",
+    "imageAssetId": "scin-img-4d00f027-4000-8000-scinSCIN0006",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0009-4000-8000-000000000001",
+    "conditionLabel": "Seborrheic keratosis",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "distractor-0",
+        "text": "stuck-on appearance",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Seborrheic Keratosis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "waxy surface",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Seborrheic Keratosis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "verrucous surface",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Seborrheic Keratosis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "stuck-on appearance",
+      "waxy surface",
+      "verrucous surface",
+      "horn cysts",
+      "well-demarcated"
+    ],
+    "tags": [
+      "benign_lesion",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.857Z"
+  },
+  {
+    "id": "quiz-dx-615e0eb9-4000-8000-scinimg4d00f",
+    "imageAssetId": "scin-img-4d00f027-4000-8000-scinSCIN0006",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0009-4000-8000-000000000001",
+    "conditionLabel": "Seborrheic keratosis",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "distractor-0",
+        "text": "Melanoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Melanoma may share some features, the specific morphology visible in this image is more consistent with Seborrheic Keratosis."
+      },
+      {
+        "id": "distractor-1",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Basal Cell Carcinoma may share some features, the specific morphology visible in this image is more consistent with Seborrheic Keratosis."
+      },
+      {
+        "id": "correct",
+        "text": "Seborrheic Keratosis",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Seborrheic Keratosis. Key features: see annotation."
+      },
+      {
+        "id": "distractor-2",
+        "text": "Squamous Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Squamous Cell Carcinoma may share some features, the specific morphology visible in this image is more consistent with Seborrheic Keratosis."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "stuck-on appearance",
+      "waxy surface",
+      "verrucous surface",
+      "horn cysts",
+      "well-demarcated"
+    ],
+    "tags": [
+      "benign_lesion",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.858Z"
+  },
+  {
+    "id": "quiz-ddx-731a5510-4000-8000-scinimg4d00f",
+    "imageAssetId": "scin-img-4d00f027-4000-8000-scinSCIN0006",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0009-4000-8000-000000000001",
+    "conditionLabel": "Seborrheic keratosis",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Seborrheic Keratosis",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Seborrheic Keratosis."
+      },
+      {
+        "id": "option-1",
+        "text": "Melanoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Seborrheic Keratosis."
+      },
+      {
+        "id": "option-2",
+        "text": "Basal Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Seborrheic Keratosis."
+      },
+      {
+        "id": "option-3",
+        "text": "Squamous Cell Carcinoma",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Seborrheic Keratosis."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "benign_lesion",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.858Z"
+  },
+  {
+    "id": "quiz-desc-5c37fb6e-4000-8000-scinimg7973f",
+    "imageAssetId": "scin-img-7973ff25-4000-8000-scinSCIN0007",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0006-4000-8000-000000000001",
+    "conditionLabel": "Contact dermatitis",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: hand",
+    "answers": [
+      {
+        "id": "distractor-0",
+        "text": "geometric distribution",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Contact Dermatitis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "vesicles",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Contact Dermatitis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "weeping",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Contact Dermatitis but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "geometric distribution",
+      "vesicles",
+      "weeping",
+      "crusting",
+      "sharp cutoff at contactant edge",
+      "pruritic"
+    ],
+    "tags": [
+      "eczematous",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.858Z"
+  },
+  {
+    "id": "quiz-dx-034f2c86-4000-8000-scinimg7973f",
+    "imageAssetId": "scin-img-7973ff25-4000-8000-scinSCIN0007",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0006-4000-8000-000000000001",
+    "conditionLabel": "Contact dermatitis",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: hand",
+    "answers": [
+      {
+        "id": "distractor-2",
+        "text": "Irritant Dermatitis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Irritant Dermatitis may share some features, the specific morphology visible in this image is more consistent with Contact Dermatitis."
+      },
+      {
+        "id": "distractor-0",
+        "text": "Atopic Dermatitis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Atopic Dermatitis may share some features, the specific morphology visible in this image is more consistent with Contact Dermatitis."
+      },
+      {
+        "id": "distractor-1",
+        "text": "Tinea Corporis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Tinea Corporis may share some features, the specific morphology visible in this image is more consistent with Contact Dermatitis."
+      },
+      {
+        "id": "correct",
+        "text": "Contact Dermatitis",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Contact Dermatitis. Key features: see annotation."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "geometric distribution",
+      "vesicles",
+      "weeping",
+      "crusting",
+      "sharp cutoff at contactant edge",
+      "pruritic"
+    ],
+    "tags": [
+      "eczematous",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.858Z"
+  },
+  {
+    "id": "quiz-ddx-15f52eaf-4000-8000-scinimg7973f",
+    "imageAssetId": "scin-img-7973ff25-4000-8000-scinSCIN0007",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0006-4000-8000-000000000001",
+    "conditionLabel": "Contact dermatitis",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: hand",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Contact Dermatitis",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Contact Dermatitis."
+      },
+      {
+        "id": "option-1",
+        "text": "Atopic Dermatitis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Contact Dermatitis."
+      },
+      {
+        "id": "option-2",
+        "text": "Tinea Corporis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Contact Dermatitis."
+      },
+      {
+        "id": "option-3",
+        "text": "Irritant Dermatitis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Contact Dermatitis."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "eczematous",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.858Z"
+  },
+  {
+    "id": "quiz-desc-5fb56876-4000-8000-scinimg5a18f",
+    "imageAssetId": "scin-img-5a18f1dd-4000-8000-scinSCIN0008",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0010-4000-8000-000000000001",
+    "conditionLabel": "Herpes zoster",
+    "questionType": "image_description",
+    "difficulty": "beginner",
+    "stem": "Examine this clinical image carefully. Select ONLY the morphological features that are directly visible in this image. Do not select features based on diagnosis alone.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "distractor-0",
+        "text": "grouped vesicles",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Herpes Zoster but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-1",
+        "text": "dermatomal distribution",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Herpes Zoster but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      },
+      {
+        "id": "distractor-2",
+        "text": "unilateral",
+        "isCorrect": false,
+        "explanation": "This is a typical feature of Herpes Zoster but is NOT visually confirmed in this specific image. Observation first, diagnosis second."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "grouped vesicles",
+      "dermatomal distribution",
+      "unilateral",
+      "erythematous base",
+      "prodromal pain"
+    ],
+    "tags": [
+      "infection",
+      "morphology",
+      "observation-first"
+    ],
+    "createdAt": "2026-03-29T17:21:39.858Z"
+  },
+  {
+    "id": "quiz-dx-7973276a-4000-8000-scinimg5a18f",
+    "imageAssetId": "scin-img-5a18f1dd-4000-8000-scinSCIN0008",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0010-4000-8000-000000000001",
+    "conditionLabel": "Herpes zoster",
+    "questionType": "single_select",
+    "difficulty": "intermediate",
+    "stem": "Based on the visible morphology in this clinical image, what is the most likely diagnosis?",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "distractor-1",
+        "text": "Contact Dermatitis",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Contact Dermatitis may share some features, the specific morphology visible in this image is more consistent with Herpes Zoster."
+      },
+      {
+        "id": "distractor-0",
+        "text": "Herpes Simplex",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Herpes Simplex may share some features, the specific morphology visible in this image is more consistent with Herpes Zoster."
+      },
+      {
+        "id": "distractor-2",
+        "text": "Bullous Impetigo",
+        "isCorrect": false,
+        "explanation": "Incorrect. While Bullous Impetigo may share some features, the specific morphology visible in this image is more consistent with Herpes Zoster."
+      },
+      {
+        "id": "correct",
+        "text": "Herpes Zoster",
+        "isCorrect": true,
+        "explanation": "Correct. The visible morphology supports Herpes Zoster. Key features: see annotation."
+      }
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [
+      "grouped vesicles",
+      "dermatomal distribution",
+      "unilateral",
+      "erythematous base",
+      "prodromal pain"
+    ],
+    "tags": [
+      "infection",
+      "diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.858Z"
+  },
+  {
+    "id": "quiz-ddx-6de6e86d-4000-8000-scinimg5a18f",
+    "imageAssetId": "scin-img-5a18f1dd-4000-8000-scinSCIN0008",
+    "datasetSource": "scin",
+    "conditionId": "c0000001-0010-4000-8000-000000000001",
+    "conditionLabel": "Herpes zoster",
+    "questionType": "differential_rank",
+    "difficulty": "advanced",
+    "stem": "Rank the following diagnoses from most likely to least likely based on the visible morphology.",
+    "context": "Body site: trunk",
+    "answers": [
+      {
+        "id": "option-0",
+        "text": "Herpes Zoster",
+        "isCorrect": true,
+        "explanation": "Most likely. The visible morphology best fits Herpes Zoster."
+      },
+      {
+        "id": "option-1",
+        "text": "Herpes Simplex",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Herpes Zoster."
+      },
+      {
+        "id": "option-2",
+        "text": "Contact Dermatitis",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Herpes Zoster."
+      },
+      {
+        "id": "option-3",
+        "text": "Bullous Impetigo",
+        "isCorrect": false,
+        "explanation": "Less likely. Consider this in the differential but the specific features visible here favor Herpes Zoster."
+      }
+    ],
+    "correctOrder": [
+      "option-0",
+      "option-1",
+      "option-2",
+      "option-3"
+    ],
+    "confirmedMorphology": [],
+    "forbiddenAssumptions": [],
+    "tags": [
+      "infection",
+      "differential-diagnosis"
+    ],
+    "createdAt": "2026-03-29T17:21:39.858Z"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "datasetLabel": "BCC",
+    "normalizedLabel": "bcc",
+    "conditionId": "c0000001-0003-4000-8000-000000000001",
+    "category": "skin_cancer",
+    "fullName": "Basal Cell Carcinoma"
+  },
+  {
+    "datasetLabel": "MEL",
+    "normalizedLabel": "mel",
+    "conditionId": "c0000001-0004-4000-8000-000000000001",
+    "category": "skin_cancer",
+    "fullName": "Melanoma"
+  },
+  {
+    "datasetLabel": "SCC",
+    "normalizedLabel": "scc",
+    "conditionId": "c0000001-0008-4000-8000-000000000001",
+    "category": "skin_cancer",
+    "fullName": "Squamous Cell Carcinoma"
+  },
+  {
+    "datasetLabel": "ACK",
+    "normalizedLabel": "ack",
+    "conditionId": "c0000001-0008-4000-8000-000000000001",
+    "category": "skin_cancer",
+    "fullName": "Actinic Keratosis"
+  },
+  {
+    "datasetLabel": "SEK",
+    "normalizedLabel": "sek",
+    "conditionId": "c0000001-0009-4000-8000-000000000001",
+    "category": "benign_lesion",
+    "fullName": "Seborrheic Keratosis"
+  }
+]

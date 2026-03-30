@@ -1,0 +1,656 @@
+[
+  {
+    "id": "proposal-14d08f66-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40c-4000-8000-padufes20PAD",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Basal Cell Carcinoma",
+    "annotation": {
+      "primaryLesions": [
+        "papule"
+      ],
+      "secondaryChanges": [],
+      "colors": [
+        "pink",
+        "pearly"
+      ],
+      "arrangement": [
+        "solitary"
+      ],
+      "distribution": [
+        "localized"
+      ],
+      "surfaceTexture": [
+        "smooth",
+        "pearly"
+      ],
+      "borderCharacteristics": [
+        "rolled"
+      ],
+      "estimatedBodySite": "face",
+      "morphologyDescription": "Pearly pink papule with a smooth, translucent surface. Telangiectatic vessels are visible across the surface. The borders appear rolled.",
+      "differentialDiagnoses": [
+        "Basal Cell Carcinoma",
+        "Dermal Nevus",
+        "Amelanotic Melanoma"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "medium"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Basal Cell Carcinoma\n  Reported body site: face\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.018Z"
+  },
+  {
+    "id": "proposal-147f551b-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40d-4000-8000-padufes20PAD",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Melanoma",
+    "annotation": {
+      "primaryLesions": [
+        "macule",
+        "papule"
+      ],
+      "secondaryChanges": [],
+      "colors": [
+        "dark brown",
+        "black",
+        "light brown",
+        "blue-gray"
+      ],
+      "arrangement": [
+        "asymmetric"
+      ],
+      "distribution": [
+        "localized"
+      ],
+      "surfaceTexture": [
+        "varied"
+      ],
+      "borderCharacteristics": [
+        "irregular",
+        "notched"
+      ],
+      "estimatedBodySite": "trunk",
+      "morphologyDescription": "Asymmetric pigmented lesion with irregular, notched borders and marked color variegation including dark brown, black, and blue-gray areas. A central region appears lighter, possibly representing regression.",
+      "differentialDiagnoses": [
+        "Melanoma",
+        "Dysplastic Nevus",
+        "Seborrheic Keratosis"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "medium"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Melanoma\n  Reported body site: trunk\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.018Z"
+  },
+  {
+    "id": "proposal-3dcf399c-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40e-4000-8000-padufes20PAD",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Squamous Cell Carcinoma",
+    "annotation": {
+      "primaryLesions": [
+        "lesion (type uncertain)"
+      ],
+      "secondaryChanges": [],
+      "colors": [
+        "erythematous"
+      ],
+      "arrangement": [
+        "solitary"
+      ],
+      "distribution": [
+        "localized"
+      ],
+      "surfaceTexture": [],
+      "borderCharacteristics": [],
+      "estimatedBodySite": "face",
+      "morphologyDescription": "A cutaneous lesion is present. Detailed morphological features require human expert review for accurate annotation.",
+      "differentialDiagnoses": [
+        "(requires expert review)"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "low"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Squamous Cell Carcinoma\n  Reported body site: face\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.018Z"
+  },
+  {
+    "id": "proposal-671f1e1d-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c40f-4000-8000-padufes20PAD",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Actinic Keratosis",
+    "annotation": {
+      "primaryLesions": [
+        "lesion (type uncertain)"
+      ],
+      "secondaryChanges": [],
+      "colors": [
+        "erythematous"
+      ],
+      "arrangement": [
+        "solitary"
+      ],
+      "distribution": [
+        "localized"
+      ],
+      "surfaceTexture": [],
+      "borderCharacteristics": [],
+      "estimatedBodySite": "scalp",
+      "morphologyDescription": "A cutaneous lesion is present. Detailed morphological features require human expert review for accurate annotation.",
+      "differentialDiagnoses": [
+        "(requires expert review)"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "low"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Actinic Keratosis\n  Reported body site: scalp\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.018Z"
+  },
+  {
+    "id": "proposal-4f0e697a-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c410-4000-8000-padufes20PAD",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Seborrheic Keratosis",
+    "annotation": {
+      "primaryLesions": [
+        "papule",
+        "plaque"
+      ],
+      "secondaryChanges": [],
+      "colors": [
+        "brown",
+        "tan"
+      ],
+      "arrangement": [
+        "solitary"
+      ],
+      "distribution": [
+        "localized"
+      ],
+      "surfaceTexture": [
+        "waxy",
+        "verrucous",
+        "stuck-on"
+      ],
+      "borderCharacteristics": [
+        "well-demarcated"
+      ],
+      "estimatedBodySite": "trunk",
+      "morphologyDescription": "Well-demarcated brown papule with a waxy, stuck-on appearance and verrucous surface texture. The lesion appears superficial and easily friable.",
+      "differentialDiagnoses": [
+        "Seborrheic Keratosis",
+        "Melanoma",
+        "Pigmented BCC"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "high"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Seborrheic Keratosis\n  Reported body site: trunk\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.018Z"
+  },
+  {
+    "id": "proposal-25be84f9-4000-8000-padimg6792c4",
+    "imageAssetId": "pad-img-6792c411-4000-8000-padufes20PAD",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Melanocytic Nevus",
+    "annotation": {
+      "primaryLesions": [
+        "lesion (type uncertain)"
+      ],
+      "secondaryChanges": [],
+      "colors": [
+        "erythematous"
+      ],
+      "arrangement": [
+        "solitary"
+      ],
+      "distribution": [
+        "localized"
+      ],
+      "surfaceTexture": [],
+      "borderCharacteristics": [],
+      "estimatedBodySite": "upper_extremity",
+      "morphologyDescription": "A cutaneous lesion is present. Detailed morphological features require human expert review for accurate annotation.",
+      "differentialDiagnoses": [
+        "(requires expert review)"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "low"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Melanocytic Nevus\n  Reported body site: upper_extremity\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.019Z"
+  },
+  {
+    "id": "proposal-2a8ed211-4000-8000-scinimg6ec1a",
+    "imageAssetId": "scin-img-6ec1a531-4000-8000-scinSCIN0001",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Psoriasis",
+    "annotation": {
+      "primaryLesions": [
+        "plaque"
+      ],
+      "secondaryChanges": [
+        "scale"
+      ],
+      "colors": [
+        "erythematous",
+        "silvery-white"
+      ],
+      "arrangement": [
+        "well-circumscribed"
+      ],
+      "distribution": [
+        "localized"
+      ],
+      "surfaceTexture": [
+        "scaly"
+      ],
+      "borderCharacteristics": [
+        "well-demarcated"
+      ],
+      "estimatedBodySite": "upper_extremity",
+      "morphologyDescription": "Well-demarcated erythematous plaque with overlying silvery-white scale. The borders are sharply defined with an abrupt transition to normal-appearing surrounding skin.",
+      "differentialDiagnoses": [
+        "Plaque Psoriasis",
+        "Nummular Eczema",
+        "Tinea Corporis"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "high"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Psoriasis\n  Reported body site: upper_extremity\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.019Z"
+  },
+  {
+    "id": "proposal-708ec599-4000-8000-scinimg64cb4",
+    "imageAssetId": "scin-img-64cb4bd1-4000-8000-scinSCIN0002",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Atopic dermatitis",
+    "annotation": {
+      "primaryLesions": [
+        "patch",
+        "plaque"
+      ],
+      "secondaryChanges": [
+        "scale",
+        "excoriation"
+      ],
+      "colors": [
+        "erythematous",
+        "pink"
+      ],
+      "arrangement": [
+        "confluent"
+      ],
+      "distribution": [
+        "flexural"
+      ],
+      "surfaceTexture": [
+        "dry",
+        "rough"
+      ],
+      "borderCharacteristics": [
+        "ill-defined",
+        "blurred"
+      ],
+      "estimatedBodySite": "upper_extremity",
+      "morphologyDescription": "Poorly demarcated erythematous patches with fine scale and scattered linear excoriations. The involved skin appears dry with subtle lichenification.",
+      "differentialDiagnoses": [
+        "Atopic Dermatitis",
+        "Contact Dermatitis",
+        "Seborrheic Dermatitis"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "medium"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Atopic dermatitis\n  Reported body site: upper_extremity\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.019Z"
+  },
+  {
+    "id": "proposal-10d8d039-4000-8000-scinimg38583",
+    "imageAssetId": "scin-img-38583cd3-4000-8000-scinSCIN0003",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Melanoma",
+    "annotation": {
+      "primaryLesions": [
+        "macule",
+        "papule"
+      ],
+      "secondaryChanges": [],
+      "colors": [
+        "dark brown",
+        "black",
+        "light brown",
+        "blue-gray"
+      ],
+      "arrangement": [
+        "asymmetric"
+      ],
+      "distribution": [
+        "localized"
+      ],
+      "surfaceTexture": [
+        "varied"
+      ],
+      "borderCharacteristics": [
+        "irregular",
+        "notched"
+      ],
+      "estimatedBodySite": "trunk",
+      "morphologyDescription": "Asymmetric pigmented lesion with irregular, notched borders and marked color variegation including dark brown, black, and blue-gray areas. A central region appears lighter, possibly representing regression.",
+      "differentialDiagnoses": [
+        "Melanoma",
+        "Dysplastic Nevus",
+        "Seborrheic Keratosis"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "medium"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Melanoma\n  Reported body site: trunk\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.019Z"
+  },
+  {
+    "id": "proposal-4f73b824-4000-8000-scinimg0be52",
+    "imageAssetId": "scin-img-0be52dd5-4000-8000-scinSCIN0004",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Tinea corporis",
+    "annotation": {
+      "primaryLesions": [
+        "plaque"
+      ],
+      "secondaryChanges": [
+        "scale"
+      ],
+      "colors": [
+        "erythematous"
+      ],
+      "arrangement": [
+        "annular"
+      ],
+      "distribution": [
+        "localized"
+      ],
+      "surfaceTexture": [
+        "scaly border"
+      ],
+      "borderCharacteristics": [
+        "raised border",
+        "central clearing"
+      ],
+      "estimatedBodySite": "trunk",
+      "morphologyDescription": "Annular erythematous plaque with a raised, scaly advancing border and relative central clearing. Scale appears concentrated at the inner edge of the border.",
+      "differentialDiagnoses": [
+        "Tinea Corporis",
+        "Granuloma Annulare",
+        "Nummular Eczema"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "high"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Tinea corporis\n  Reported body site: trunk\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.019Z"
+  },
+  {
+    "id": "proposal-05e58605-4000-8000-scinimg208de",
+    "imageAssetId": "scin-img-208de129-4000-8000-scinSCIN0005",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Acne vulgaris",
+    "annotation": {
+      "primaryLesions": [
+        "comedone",
+        "papule",
+        "pustule"
+      ],
+      "secondaryChanges": [],
+      "colors": [
+        "erythematous",
+        "skin-colored"
+      ],
+      "arrangement": [
+        "scattered"
+      ],
+      "distribution": [
+        "facial"
+      ],
+      "surfaceTexture": [
+        "mixed"
+      ],
+      "borderCharacteristics": [],
+      "estimatedBodySite": "face",
+      "morphologyDescription": "Multiple open and closed comedones with erythematous papules and pustules in a facial distribution. Comedones are the predominant lesion type.",
+      "differentialDiagnoses": [
+        "Acne Vulgaris",
+        "Rosacea",
+        "Folliculitis"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "high"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Acne vulgaris\n  Reported body site: face\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.019Z"
+  },
+  {
+    "id": "proposal-702c13fc-4000-8000-scinimg4d00f",
+    "imageAssetId": "scin-img-4d00f027-4000-8000-scinSCIN0006",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Seborrheic keratosis",
+    "annotation": {
+      "primaryLesions": [
+        "papule",
+        "plaque"
+      ],
+      "secondaryChanges": [],
+      "colors": [
+        "brown",
+        "tan"
+      ],
+      "arrangement": [
+        "solitary"
+      ],
+      "distribution": [
+        "localized"
+      ],
+      "surfaceTexture": [
+        "waxy",
+        "verrucous",
+        "stuck-on"
+      ],
+      "borderCharacteristics": [
+        "well-demarcated"
+      ],
+      "estimatedBodySite": "trunk",
+      "morphologyDescription": "Well-demarcated brown papule with a waxy, stuck-on appearance and verrucous surface texture. The lesion appears superficial and easily friable.",
+      "differentialDiagnoses": [
+        "Seborrheic Keratosis",
+        "Melanoma",
+        "Pigmented BCC"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "high"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Seborrheic keratosis\n  Reported body site: trunk\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.019Z"
+  },
+  {
+    "id": "proposal-3be99a23-4000-8000-scinimg7973f",
+    "imageAssetId": "scin-img-7973ff25-4000-8000-scinSCIN0007",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Contact dermatitis",
+    "annotation": {
+      "primaryLesions": [
+        "patch",
+        "vesicle"
+      ],
+      "secondaryChanges": [
+        "weeping",
+        "crusting"
+      ],
+      "colors": [
+        "erythematous"
+      ],
+      "arrangement": [
+        "geometric"
+      ],
+      "distribution": [
+        "localized"
+      ],
+      "surfaceTexture": [
+        "vesicular",
+        "weeping"
+      ],
+      "borderCharacteristics": [
+        "sharp geometric cutoff"
+      ],
+      "estimatedBodySite": "hand",
+      "morphologyDescription": "Erythematous patches with scattered vesicles and serous weeping. The eruption shows a sharp, geometric cutoff suggesting an external contactant. Active vesiculation is present.",
+      "differentialDiagnoses": [
+        "Contact Dermatitis",
+        "Atopic Dermatitis",
+        "Dyshidrotic Eczema"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "high"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Contact dermatitis\n  Reported body site: hand\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.019Z"
+  },
+  {
+    "id": "proposal-58d5da79-4000-8000-scinimg5a18f",
+    "imageAssetId": "scin-img-5a18f1dd-4000-8000-scinSCIN0008",
+    "provenance": "model_proposed",
+    "modelProvider": "mock",
+    "reviewStatus": "pending",
+    "conditionLabel": "Herpes zoster",
+    "annotation": {
+      "primaryLesions": [
+        "vesicle",
+        "pustule"
+      ],
+      "secondaryChanges": [
+        "crusting"
+      ],
+      "colors": [
+        "erythematous",
+        "cloudy"
+      ],
+      "arrangement": [
+        "grouped"
+      ],
+      "distribution": [
+        "dermatomal",
+        "unilateral"
+      ],
+      "surfaceTexture": [
+        "vesicular"
+      ],
+      "borderCharacteristics": [],
+      "estimatedBodySite": "trunk",
+      "morphologyDescription": "Grouped vesicles and pustules on erythematous bases in a unilateral, band-like distribution. Vesicles are at various stages including clear, cloudy, and crusted. The eruption does not cross the midline.",
+      "differentialDiagnoses": [
+        "Herpes Zoster",
+        "Herpes Simplex",
+        "Contact Dermatitis"
+      ],
+      "uncertainFeatures": [
+        "detailed morphology requires direct image assessment"
+      ],
+      "confidence": "high"
+    },
+    "promptUsed": {
+      "system": "You are a dermatology image annotation assistant. Your role is to describe the visible morphology of skin lesions with precision and objectivity.\n\nCRITICAL RULES - Observation First Philosophy:\n1. Describe ONLY what is visually supported by the image.\n2. Do NOT include disease features unless they are DIRECTLY visible.\n3. If scale is not visible, do NOT say scale.\n4. If borders are not assessable, do NOT describe border characteristics.\n5. Observation first, diagnosis second.\n6. Use standard dermatological morphology terminology.\n7. Be specific about colors, shapes, and textures you can actually see.\n8. Note when a feature is ambiguous or uncertain.\n9. Do NOT assume features from a suspected diagnosis.\n10. Distinguish between what you SEE and what you INFER.\n\nRespond with a structured JSON annotation following the StructuredAnnotation schema.",
+      "user": "Examine this clinical dermatology image and provide a structured morphological annotation.\n\nDescribe ONLY what you can directly observe in this specific image.\nDo NOT assume features based on a suspected diagnosis.\n\nContext from dataset metadata (for reference only, do not let this bias your observations):\n  Dataset label: Herpes zoster\n  Reported body site: trunk\n\nProvide your annotation as a JSON object with these fields:\n- primaryLesions: string[] (e.g. papule, plaque, macule, vesicle, nodule)\n- secondaryChanges: string[] (e.g. scale, crust, erosion, ulceration, lichenification)\n- colors: string[] (specific colors seen: brown, erythematous, hyperpigmented, etc.)\n- arrangement: string[] (e.g. annular, grouped, linear, scattered)\n- distribution: string[] (e.g. dermatomal, flexural, localized)\n- surfaceTexture: string[] (e.g. smooth, verrucous, waxy, pearly)\n- borderCharacteristics: string[] (e.g. well-demarcated, ill-defined, rolled, irregular)\n- estimatedBodySite: string (if identifiable from image)\n- morphologyDescription: string (free-text, observation-only description)\n- differentialDiagnoses: string[] (ranked, based on visible morphology only)\n- uncertainFeatures: string[] (features you cannot confidently assess)\n- confidence: \"low\" | \"medium\" | \"high\""
+    },
+    "createdAt": "2026-03-29T17:21:46.019Z"
+  }
+]

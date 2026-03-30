@@ -23,6 +23,10 @@
 # misc
 .DS_Store
 *.pem
+*.zip
+
+# local datasets and other large/raw assets
+/data/datasets/
 
 # debug
 npm-debug.log*

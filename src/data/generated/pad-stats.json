@@ -1,0 +1,120 @@
+{
+  "generatedAt": "2026-03-29T18:27:42.965Z",
+  "datasetSource": "PAD-UFES-20",
+  "totalMetadataRows": 2298,
+  "totalImagesIncluded": 2298,
+  "totalAnnotations": 9622,
+  "missingImageFiles": 0,
+  "unmappedDiagnoses": 0,
+  "byDiagnosis": [
+    {
+      "label": "Basal Cell Carcinoma",
+      "count": 845
+    },
+    {
+      "label": "Actinic Keratosis",
+      "count": 730
+    },
+    {
+      "label": "Melanocytic Nevus",
+      "count": 244
+    },
+    {
+      "label": "Seborrheic Keratosis",
+      "count": 235
+    },
+    {
+      "label": "Squamous Cell Carcinoma",
+      "count": 192
+    },
+    {
+      "label": "Melanoma",
+      "count": 52
+    }
+  ],
+  "byBodySite": [
+    {
+      "site": "face",
+      "count": 570
+    },
+    {
+      "site": "forearm",
+      "count": 392
+    },
+    {
+      "site": "chest",
+      "count": 280
+    },
+    {
+      "site": "back",
+      "count": 248
+    },
+    {
+      "site": "upper arm",
+      "count": 192
+    },
+    {
+      "site": "nose",
+      "count": 158
+    },
+    {
+      "site": "hand",
+      "count": 126
+    },
+    {
+      "site": "neck",
+      "count": 93
+    },
+    {
+      "site": "thigh",
+      "count": 73
+    },
+    {
+      "site": "ear",
+      "count": 73
+    },
+    {
+      "site": "abdomen",
+      "count": 36
+    },
+    {
+      "site": "lip",
+      "count": 23
+    },
+    {
+      "site": "scalp",
+      "count": 18
+    },
+    {
+      "site": "foot",
+      "count": 16
+    }
+  ],
+  "bySkinTone": [
+    {
+      "tone": "fitzpatrick_2",
+      "count": 876
+    },
+    {
+      "tone": "fitzpatrick_3",
+      "count": 392
+    },
+    {
+      "tone": "fitzpatrick_1",
+      "count": 153
+    },
+    {
+      "tone": "fitzpatrick_4",
+      "count": 62
+    },
+    {
+      "tone": "fitzpatrick_5",
+      "count": 10
+    },
+    {
+      "tone": "fitzpatrick_6",
+      "count": 1
+    }
+  ],
+  "missingFilesList": []
+}
