@@ -125,9 +125,19 @@ export function BiopsyChoice({ module, imageUrl }: BiopsyChoiceProps) {
 
       {/* Biopsy choice cards */}
       <div>
-        <h2 className="mb-3 text-base font-semibold">
-          Which biopsy technique is most appropriate?
-        </h2>
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <h2 className="text-base font-semibold">
+            Which biopsy technique is most appropriate?
+          </h2>
+          {!submitted && (
+            <Badge
+              variant="outline"
+              className="rounded-full text-[0.68rem] uppercase tracking-[0.16em]"
+            >
+              Feedback hidden until submit
+            </Badge>
+          )}
+        </div>
         <div className="grid gap-3">
           {options.map((option) => {
             const isSelected = selectedId === option.id;
@@ -184,9 +194,9 @@ export function BiopsyChoice({ module, imageUrl }: BiopsyChoiceProps) {
 
                 <div className="flex-1">
                   <p className="text-sm font-bold">{option.label}</p>
-                  {option.explanation && !submitted && (
-                    <p className="mt-0.5 text-xs text-muted-foreground line-clamp-1">
-                      {option.explanation.slice(0, 60)}...
+                  {!submitted && isSelected && (
+                    <p className="mt-1 text-xs text-primary">
+                      Selection staged. Rationale unlocks after submission.
                     </p>
                   )}
                   {submitted && (

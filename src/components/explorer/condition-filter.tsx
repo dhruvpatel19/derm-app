@@ -406,33 +406,30 @@ export function ConditionFilter({
     sortBy !== "alphabetical";
 
   return (
-    <div className="mt-6 space-y-5">
-      <section className="surface-panel sticky top-20 z-20 rounded-[30px] p-4 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-5">
-        <div className="grid gap-4 xl:grid-cols-[minmax(0,1.4fr)_minmax(280px,0.8fr)] xl:items-start">
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Search and navigate
-            </div>
-            <div className="relative mt-3">
-              <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search by condition name, alias, clue, or description"
-                value={search}
-                onChange={(event) => {
-                  setSearch(event.target.value);
-                  setVisibleCount(INITIAL_VISIBLE_COUNT);
-                }}
-                className="pl-11"
-              />
-            </div>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              Browse by category, sort by the richest teaching content, and
-              reveal more cards only when you need them.
-            </p>
+    <div className="mt-6 grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)]">
+      <aside className="space-y-5 xl:sticky xl:top-24 xl:self-start">
+        <section className="surface-panel rounded-[30px] p-5">
+          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            Search the atlas
           </div>
+          <div className="relative mt-3">
+            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Input
+              type="search"
+              placeholder="Search by condition, alias, clue, or descriptor"
+              value={search}
+              onChange={(event) => {
+                setSearch(event.target.value);
+                setVisibleCount(INITIAL_VISIBLE_COUNT);
+              }}
+              className="pl-11"
+            />
+          </div>
+          <p className="mt-3 text-sm leading-7 text-muted-foreground">
+            Use the explorer like a study atlas: narrow the topic first, then go deeper into the cards that matter.
+          </p>
 
-          <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-1 2xl:grid-cols-3">
+          <div className="mt-5 grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
             <SummaryMetric
               icon={Layers3}
               label="Showing"
@@ -442,97 +439,85 @@ export function ConditionFilter({
             <SummaryMetric
               icon={Camera}
               label="State"
-              value={search ? "Filtered search" : "Browse atlas"}
+              value={search ? "Focused search" : "Browse atlas"}
             />
           </div>
-        </div>
+        </section>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => {
-              setSelectedCategory("all");
-              setVisibleCount(INITIAL_VISIBLE_COUNT);
-            }}
-            className={cn(
-              "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors",
-              selectedCategory === "all"
-                ? "bg-foreground text-background shadow-[0_16px_30px_rgba(18,36,60,0.14)]"
-                : "border border-white/55 bg-white/55 text-muted-foreground hover:text-foreground dark:border-white/8 dark:bg-white/5"
-            )}
-          >
-            <span>All categories</span>
-            <span
+        <section className="surface-panel rounded-[30px] p-4">
+          <div className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+            Study tracks
+          </div>
+
+          <div className="space-y-2.5">
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedCategory("all");
+                setVisibleCount(INITIAL_VISIBLE_COUNT);
+              }}
               className={cn(
-                "rounded-full px-2 py-0.5 text-xs",
+                "flex w-full items-center justify-between rounded-[22px] px-4 py-3 text-left text-sm font-semibold transition-colors",
                 selectedCategory === "all"
-                  ? "bg-white/20 text-background"
-                  : "bg-foreground/8 text-muted-foreground dark:bg-white/10"
+                  ? "bg-foreground text-background shadow-[0_16px_30px_rgba(18,36,60,0.14)]"
+                  : "border border-white/55 bg-white/55 text-muted-foreground hover:text-foreground dark:border-white/8 dark:bg-white/5"
               )}
             >
-              {searchFiltered.length}
-            </span>
-          </button>
+              <span>All categories</span>
+              <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs">
+                {searchFiltered.length}
+              </span>
+            </button>
 
-          {categorySummaries.map(({ category, count, imageBackedCount }) => {
-            const isActive = selectedCategory === category;
-            const theme = categoryThemes[category as ConditionCategory];
+            {categorySummaries.map(({ category, count, imageBackedCount }) => {
+              const isActive = selectedCategory === category;
+              const theme = categoryThemes[category as ConditionCategory];
 
-            return (
-              <button
-                key={category}
-                type="button"
-                onClick={() => {
-                  setSelectedCategory(category);
-                  setVisibleCount(INITIAL_VISIBLE_COUNT);
-                }}
-                className={cn(
-                  "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors",
-                  isActive
-                    ? "bg-primary text-primary-foreground shadow-[0_16px_30px_rgba(29,126,120,0.22)]"
-                    : "border border-white/55 bg-white/55 text-muted-foreground hover:text-foreground dark:border-white/8 dark:bg-white/5"
-                )}
-              >
-                <span
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => {
+                    setSelectedCategory(category);
+                    setVisibleCount(INITIAL_VISIBLE_COUNT);
+                  }}
                   className={cn(
-                    "h-2.5 w-2.5 rounded-full",
-                    theme?.dot ?? "bg-slate-500"
-                  )}
-                />
-                <span>{formatCategory(category as ConditionCategory)}</span>
-                <span
-                  className={cn(
-                    "rounded-full px-2 py-0.5 text-xs",
+                    "flex w-full items-center justify-between rounded-[22px] px-4 py-3 text-left text-sm font-semibold transition-colors",
                     isActive
-                      ? "bg-white/18 text-primary-foreground"
-                      : "bg-foreground/8 text-muted-foreground dark:bg-white/10"
+                      ? "bg-primary text-primary-foreground shadow-[0_16px_30px_rgba(29,126,120,0.22)]"
+                      : "border border-white/55 bg-white/55 text-muted-foreground hover:text-foreground dark:border-white/8 dark:bg-white/5"
                   )}
                 >
-                  {count}
-                </span>
-                {imageBackedCount > 0 && (
-                  <span
-                    className={cn(
-                      "hidden rounded-full px-2 py-0.5 text-[0.68rem] sm:inline-flex",
-                      isActive
-                        ? "bg-white/12 text-primary-foreground/90"
-                        : "bg-primary/8 text-primary"
-                    )}
-                  >
-                    {imageBackedCount} with images
+                  <span className="flex items-center gap-2">
+                    <span
+                      className={cn(
+                        "h-2.5 w-2.5 rounded-full",
+                        theme?.dot ?? "bg-slate-500"
+                      )}
+                    />
+                    {formatCategory(category as ConditionCategory)}
                   </span>
-                )}
-              </button>
-            );
-          })}
-        </div>
+                  <span className="text-right">
+                    <span className="block text-xs">{count} total</span>
+                    {imageBackedCount > 0 && (
+                      <span className="block text-[0.68rem] opacity-80">
+                        {imageBackedCount} imaged
+                      </span>
+                    )}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </section>
 
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/55 pt-4 dark:border-white/8">
-          <div className="flex flex-wrap items-center gap-2">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/55 bg-white/55 px-3 py-1.5 text-sm font-semibold text-muted-foreground dark:border-white/8 dark:bg-white/5">
-              <SlidersHorizontal className="h-4 w-4 text-primary" />
-              Sort by
-            </div>
+        <section className="surface-panel rounded-[30px] p-4">
+          <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+            <SlidersHorizontal className="h-3.5 w-3.5 text-primary" />
+            Sort results
+          </div>
+
+          <div className="flex flex-wrap gap-2">
             <SortChip
               active={sortBy === "alphabetical"}
               onClick={() => {
@@ -571,84 +556,100 @@ export function ConditionFilter({
                 setSortBy("alphabetical");
                 setVisibleCount(INITIAL_VISIBLE_COUNT);
               }}
-              className="rounded-full border border-white/55 bg-white/55 px-3 py-1.5 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground dark:border-white/8 dark:bg-white/5"
+              className="mt-4 rounded-full border border-white/55 bg-white/55 px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground dark:border-white/8 dark:bg-white/5"
             >
               Reset explorer
             </button>
           )}
-        </div>
-      </section>
+        </section>
+      </aside>
 
-      {filtered.length === 0 ? (
-        <div className="surface-panel rounded-[30px] px-6 py-14 text-center">
-          <p className="font-heading text-2xl text-foreground">
-            No conditions match that combination.
-          </p>
-          <p className="mt-3 text-sm leading-7 text-muted-foreground">
-            Try broadening the search terms or switching back to all
-            categories.
-          </p>
-        </div>
-      ) : (
-        <>
-          <div className="flex flex-wrap items-center justify-between gap-3 px-1">
-            <div>
-              <p className="text-sm font-semibold text-foreground">
-                {activeLabel}
-              </p>
-              <p className="text-sm text-muted-foreground">
-                {hasMoreResults
-                  ? `Previewing ${visibleResults.length} of ${filtered.length} conditions`
-                  : `Showing all ${filtered.length} conditions`}
-              </p>
+      <div className="space-y-5">
+        {filtered.length === 0 ? (
+          <div className="surface-panel rounded-[30px] px-6 py-14 text-center">
+            <p className="font-heading text-2xl text-foreground">
+              No conditions match that combination.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">
+              Try broadening the search terms or switching back to all categories.
+            </p>
+          </div>
+        ) : (
+          <>
+            <section className="surface-panel rounded-[30px] p-5">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    Active view
+                  </p>
+                  <h2 className="mt-2 text-2xl text-foreground">{activeLabel}</h2>
+                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                    {hasMoreResults
+                      ? `Previewing ${visibleResults.length} of ${filtered.length} conditions so the atlas stays manageable.`
+                      : `Showing all ${filtered.length} conditions in this view.`}
+                  </p>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-[20px] border border-white/55 bg-white/55 px-4 py-3 dark:border-white/8 dark:bg-white/5">
+                    <div className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                      Best for
+                    </div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">
+                      Focused browsing
+                    </div>
+                  </div>
+                  <div className="rounded-[20px] border border-white/55 bg-white/55 px-4 py-3 dark:border-white/8 dark:bg-white/5">
+                    <div className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                      Navigation
+                    </div>
+                    <div className="mt-2 text-sm font-semibold text-foreground">
+                      Filter first, then compare
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div
+              className="grid gap-4 md:grid-cols-2 2xl:grid-cols-3"
+              key={`${selectedCategory}-${search}-${sortBy}`}
+            >
+              {visibleResults.map((condition, index) => (
+                <ConditionCard
+                  key={condition.id}
+                  condition={condition}
+                  imageCount={imageCounts[condition.id] ?? 0}
+                  caseCount={caseCounts[condition.id] ?? 0}
+                  compareCount={compareCounts[condition.id] ?? 0}
+                  bodySites={bodySites[condition.id] ?? []}
+                  index={index}
+                />
+              ))}
             </div>
+
             {hasMoreResults && (
-              <div className="rounded-full border border-white/55 bg-white/55 px-3 py-1.5 text-sm font-semibold text-muted-foreground dark:border-white/8 dark:bg-white/5">
-                Load more to keep scrolling manageable
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setVisibleCount((current) => current + VISIBLE_COUNT_STEP)
+                  }
+                  className="rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background shadow-[0_16px_30px_rgba(18,36,60,0.14)] transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-[#10233f]"
+                >
+                  Show {Math.min(VISIBLE_COUNT_STEP, filtered.length - visibleCount)} more
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setVisibleCount(filtered.length)}
+                  className="rounded-full border border-white/55 bg-white/55 px-5 py-2.5 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground dark:border-white/8 dark:bg-white/5"
+                >
+                  Show all {filtered.length}
+                </button>
               </div>
             )}
-          </div>
-
-          <div
-            className="grid gap-4 md:grid-cols-2 2xl:grid-cols-3"
-            key={`${selectedCategory}-${search}-${sortBy}`}
-          >
-            {visibleResults.map((condition, index) => (
-              <ConditionCard
-                key={condition.id}
-                condition={condition}
-                imageCount={imageCounts[condition.id] ?? 0}
-                caseCount={caseCounts[condition.id] ?? 0}
-                compareCount={compareCounts[condition.id] ?? 0}
-                bodySites={bodySites[condition.id] ?? []}
-                index={index}
-              />
-            ))}
-          </div>
-
-          {hasMoreResults && (
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <button
-                type="button"
-                onClick={() =>
-                  setVisibleCount((current) => current + VISIBLE_COUNT_STEP)
-                }
-                className="rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background shadow-[0_16px_30px_rgba(18,36,60,0.14)] transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-[#10233f]"
-              >
-                Show {Math.min(VISIBLE_COUNT_STEP, filtered.length - visibleCount)}{" "}
-                more
-              </button>
-              <button
-                type="button"
-                onClick={() => setVisibleCount(filtered.length)}
-                className="rounded-full border border-white/55 bg-white/55 px-5 py-2.5 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground dark:border-white/8 dark:bg-white/5"
-              >
-                Show all {filtered.length}
-              </button>
-            </div>
-          )}
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 }

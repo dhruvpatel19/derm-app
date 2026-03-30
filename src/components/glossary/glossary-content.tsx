@@ -6,7 +6,13 @@ import type {
   MorphologyTerm,
   MorphologyTermCategory,
 } from "@/lib/domain/schemas";
-import { ArrowRight, Brain, Lightbulb, Search } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpenText,
+  Brain,
+  Lightbulb,
+  Search,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -65,12 +71,50 @@ interface GlossaryContentProps {
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-function TermCard({
+function TermListItem({
+  term,
+  active,
+  onSelect,
+}: {
+  term: MorphologyTerm;
+  active: boolean;
+  onSelect: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      className={cn(
+        "w-full rounded-[22px] border p-4 text-left transition-all duration-150",
+        active
+          ? "border-primary bg-primary/8 shadow-[0_20px_40px_rgba(24,98,96,0.12)]"
+          : "border-white/55 bg-white/52 hover:-translate-y-0.5 hover:shadow-card-hover dark:border-white/8 dark:bg-white/5"
+      )}
+    >
+      <div className="flex flex-wrap items-center gap-2">
+        <Badge className={categoryStyles[term.category].chip}>
+          {categoryLabels[term.category]}
+        </Badge>
+        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+          {term.term[0].toUpperCase()}
+        </span>
+      </div>
+      <h3 className="mt-3 text-base font-semibold text-foreground">{term.term}</h3>
+      <p className="mt-2 line-clamp-2 text-sm leading-6 text-muted-foreground">
+        {term.definition}
+      </p>
+    </button>
+  );
+}
+
+function TermDetailPanel({
   term,
   allTerms,
+  onSelectTerm,
 }: {
   term: MorphologyTerm;
   allTerms: MorphologyTerm[];
+  onSelectTerm: (termId: string) => void;
 }) {
   const relatedTerms = (term.relatedTerms ?? [])
     .map((id) => allTerms.find((candidate) => candidate.id === id))
@@ -78,33 +122,33 @@ function TermCard({
   const style = categoryStyles[term.category];
 
   return (
-    <article
-      id={`term-${term.id}`}
-      className="surface-panel card-hover relative overflow-hidden rounded-[30px] p-5 sm:p-6"
-    >
+    <article className="surface-panel relative overflow-hidden rounded-[32px] p-6 sm:p-7">
       <div
         className={cn(
-          "absolute inset-x-0 top-0 h-20 bg-gradient-to-br opacity-80",
+          "absolute inset-x-0 top-0 h-28 bg-gradient-to-br opacity-90",
           style.tint
         )}
       />
       <div className="relative">
-        <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <Badge className={style.chip}>{categoryLabels[term.category]}</Badge>
-            <h3 className="mt-4 text-foreground">{term.term}</h3>
+            <h2 className="mt-4 text-foreground">{term.term}</h2>
+          </div>
+          <div className="rounded-full border border-white/55 bg-white/60 px-4 py-2 text-sm font-semibold text-muted-foreground dark:border-white/8 dark:bg-white/6">
+            Morphology reference
           </div>
         </div>
 
-        <p className="mt-4 text-sm leading-7 text-muted-foreground">
+        <p className="mt-5 max-w-3xl text-sm leading-8 text-muted-foreground">
           {term.definition}
         </p>
 
         {term.mnemonic && (
-          <div className="mt-5 rounded-[24px] border border-amber-200 bg-amber-50/80 p-4 dark:border-amber-900 dark:bg-amber-950/20">
+          <div className="mt-6 rounded-[24px] border border-amber-200 bg-amber-50/80 p-4 dark:border-amber-900 dark:bg-amber-950/20">
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-300">
               <Lightbulb className="h-3.5 w-3.5" />
-              Mnemonic
+              Memory hook
             </div>
             <p className="mt-2 text-sm italic leading-7 text-amber-800 dark:text-amber-200">
               {term.mnemonic}
@@ -113,20 +157,20 @@ function TermCard({
         )}
 
         {term.confusionPoints && term.confusionPoints.length > 0 && (
-          <div className="mt-5">
+          <div className="mt-6">
             <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
               Distinguish from
             </div>
-            <div className="mt-3 grid gap-2">
+            <div className="mt-3 grid gap-3 md:grid-cols-2">
               {term.confusionPoints.map((confusionPoint, index) => (
                 <div
                   key={`${confusionPoint.confusedWith}-${index}`}
-                  className="rounded-[20px] border border-white/55 bg-white/45 px-4 py-3 dark:border-white/7 dark:bg-white/4"
+                  className="rounded-[22px] border border-white/55 bg-white/52 px-4 py-4 dark:border-white/8 dark:bg-white/5"
                 >
                   <p className="text-sm font-semibold text-foreground">
                     vs {confusionPoint.confusedWith}
                   </p>
-                  <p className="mt-1 text-sm leading-7 text-muted-foreground">
+                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
                     {confusionPoint.distinction}
                   </p>
                 </div>
@@ -136,28 +180,39 @@ function TermCard({
         )}
 
         {relatedTerms.length > 0 && (
-          <div className="mt-5">
+          <div className="mt-6">
             <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
               Related terms
             </div>
             <div className="mt-3 flex flex-wrap gap-2">
               {relatedTerms.map((relatedTerm) => (
-                <a
+                <button
                   key={relatedTerm.id}
-                  href={`#term-${relatedTerm.id}`}
-                  className="rounded-full border border-primary/18 bg-primary/8 px-3 py-1.5 text-xs font-semibold text-primary"
+                  type="button"
+                  onClick={() => onSelectTerm(relatedTerm.id)}
+                  className="rounded-full border border-primary/18 bg-primary/8 px-3 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
                 >
                   {relatedTerm.term}
-                </a>
+                </button>
               ))}
             </div>
           </div>
         )}
 
-        <div className="mt-6 border-t border-white/55 pt-4 dark:border-white/7">
+        <div className="mt-7 grid gap-4 border-t border-white/55 pt-5 dark:border-white/8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div className="rounded-[22px] border border-white/55 bg-white/52 px-4 py-4 dark:border-white/8 dark:bg-white/5">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+              <BookOpenText className="h-3.5 w-3.5 text-primary" />
+              How to use this term
+            </div>
+            <p className="mt-2 text-sm leading-7 text-muted-foreground">
+              Use this descriptor when you want your lesion description to be precise, reproducible, and useful for narrowing a differential.
+            </p>
+          </div>
+
           <Link
             href="/trainer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background shadow-[0_16px_30px_rgba(18,36,60,0.14)] transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-[#10233f]"
           >
             <Brain className="h-4 w-4" />
             Test this concept in the trainer
@@ -172,6 +227,9 @@ function TermCard({
 export function GlossaryContent({ morphologyTerms }: GlossaryContentProps) {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [selectedTermId, setSelectedTermId] = useState<string | null>(
+    morphologyTerms[0]?.id ?? null
+  );
 
   const presentCategories = useMemo(() => {
     const categories = new Set(morphologyTerms.map((term) => term.category));
@@ -190,6 +248,14 @@ export function GlossaryContent({ morphologyTerms }: GlossaryContentProps) {
     });
   }, [morphologyTerms, search, selectedCategory]);
 
+  const effectiveSelectedTermId =
+    selectedTermId && filtered.some((term) => term.id === selectedTermId)
+      ? selectedTermId
+      : filtered[0]?.id ?? null;
+
+  const selectedTerm =
+    filtered.find((term) => term.id === effectiveSelectedTermId) ?? null;
+
   const activeLetters = useMemo(() => {
     const letters = new Set<string>();
     for (const term of filtered) {
@@ -198,151 +264,153 @@ export function GlossaryContent({ morphologyTerms }: GlossaryContentProps) {
     return letters;
   }, [filtered]);
 
-  const scrollToLetter = useCallback(
+  const jumpToLetter = useCallback(
     (letter: string) => {
       const target = filtered.find(
         (term) => term.term[0].toUpperCase() === letter
       );
       if (!target) return;
-      document.getElementById(`term-${target.id}`)?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      setSelectedTermId(target.id);
     },
     [filtered]
   );
 
-  const activeCategoryLabel =
-    selectedCategory === "all"
-      ? "All concept groups"
-      : categoryLabels[selectedCategory as MorphologyTermCategory];
-
   return (
-    <div className="mt-6 space-y-6">
-      <section className="surface-panel rounded-[32px] p-5 sm:p-6">
-        <div className="grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Search the language
-            </div>
-            <div className="relative mt-3">
-              <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search terms, descriptors, or definitions"
-                value={search}
-                onChange={(event) => setSearch(event.target.value)}
-                className="pl-11"
-              />
-            </div>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              Use the glossary as a quick-reference atlas for the vocabulary
-              that powers skin description and differential thinking.
-            </p>
+    <div className="mt-6 grid gap-6 xl:grid-cols-[340px_minmax(0,1fr)]">
+      <aside className="space-y-5 xl:sticky xl:top-24 xl:self-start">
+        <section className="surface-panel rounded-[30px] p-5">
+          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            Search the language
           </div>
+          <div className="relative mt-3">
+            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Input
+              type="search"
+              placeholder="Search term or definition"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              className="pl-11"
+            />
+          </div>
+          <p className="mt-3 text-sm leading-7 text-muted-foreground">
+            Browse the vocabulary of lesion description without getting buried in a giant page.
+          </p>
 
-          <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-[20px] border border-white/55 bg-white/45 px-4 py-3 dark:border-white/7 dark:bg-white/4">
-              <div className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+          <div className="mt-5 grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
+            <div className="rounded-[20px] border border-white/55 bg-white/52 px-4 py-3 dark:border-white/8 dark:bg-white/5">
+              <div className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                 Showing
               </div>
-              <div className="mt-2 text-sm font-bold text-foreground">
+              <div className="mt-2 text-sm font-semibold text-foreground">
                 {filtered.length} terms
               </div>
             </div>
-            <div className="rounded-[20px] border border-white/55 bg-white/45 px-4 py-3 dark:border-white/7 dark:bg-white/4">
-              <div className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Group
+            <div className="rounded-[20px] border border-white/55 bg-white/52 px-4 py-3 dark:border-white/8 dark:bg-white/5">
+              <div className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                Focus
               </div>
-              <div className="mt-2 text-sm font-bold text-foreground">
-                {activeCategoryLabel}
+              <div className="mt-2 text-sm font-semibold text-foreground">
+                {selectedTerm ? selectedTerm.term : "No match"}
               </div>
             </div>
-            <div className="rounded-[20px] border border-white/55 bg-white/45 px-4 py-3 dark:border-white/7 dark:bg-white/4">
-              <div className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Quick nav
+            <div className="rounded-[20px] border border-white/55 bg-white/52 px-4 py-3 dark:border-white/8 dark:bg-white/5">
+              <div className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                Mode
               </div>
-              <div className="mt-2 text-sm font-bold text-foreground">
-                A-Z jump list
+              <div className="mt-2 text-sm font-semibold text-foreground">
+                Reference atlas
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="mt-5 flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => setSelectedCategory("all")}
-            className={cn(
-              "rounded-full px-4 py-2 text-sm font-semibold",
-              selectedCategory === "all"
-                ? "bg-foreground text-background shadow-[0_16px_30px_rgba(18,36,60,0.14)]"
-                : "border border-white/55 bg-white/48 text-muted-foreground hover:text-foreground dark:border-white/6 dark:bg-white/4"
-            )}
-          >
-            All groups
-          </button>
-          {presentCategories.map((category) => {
-            const isActive = selectedCategory === category;
-            return (
+          <div className="mt-5 flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => setSelectedCategory("all")}
+              className={cn(
+                "rounded-full px-4 py-2 text-sm font-semibold",
+                selectedCategory === "all"
+                  ? "bg-foreground text-background shadow-[0_16px_30px_rgba(18,36,60,0.14)]"
+                  : "border border-white/55 bg-white/48 text-muted-foreground hover:text-foreground dark:border-white/6 dark:bg-white/4"
+              )}
+            >
+              All groups
+            </button>
+            {presentCategories.map((category) => (
               <button
                 key={category}
                 type="button"
                 onClick={() => setSelectedCategory(category)}
                 className={cn(
                   "rounded-full px-4 py-2 text-sm font-semibold",
-                  isActive
+                  selectedCategory === category
                     ? "bg-primary text-primary-foreground shadow-[0_16px_30px_rgba(29,126,120,0.22)]"
                     : "border border-white/55 bg-white/48 text-muted-foreground hover:text-foreground dark:border-white/6 dark:bg-white/4"
                 )}
               >
                 {categoryLabels[category]}
               </button>
-            );
-          })}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      <section className="surface-panel sticky top-24 rounded-[28px] p-4">
-        <div className="flex flex-wrap items-center gap-1.5">
-          {ALPHABET.map((letter) => {
-            const enabled = activeLetters.has(letter);
-            return (
-              <button
-                key={letter}
-                type="button"
-                onClick={() => enabled && scrollToLetter(letter)}
-                disabled={!enabled}
-                className={cn(
-                  "flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold",
-                  enabled
-                    ? "bg-white/70 text-foreground hover:bg-primary hover:text-primary-foreground dark:bg-white/7"
-                    : "cursor-default text-muted-foreground/30"
-                )}
-              >
-                {letter}
-              </button>
-            );
-          })}
-        </div>
-      </section>
+        <section className="surface-panel rounded-[30px] p-4">
+          <div className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+            A-Z jump
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {ALPHABET.map((letter) => {
+              const enabled = activeLetters.has(letter);
+              return (
+                <button
+                  key={letter}
+                  type="button"
+                  onClick={() => enabled && jumpToLetter(letter)}
+                  disabled={!enabled}
+                  className={cn(
+                    "flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold",
+                    enabled
+                      ? "bg-white/70 text-foreground hover:bg-primary hover:text-primary-foreground dark:bg-white/7"
+                      : "cursor-default text-muted-foreground/30"
+                  )}
+                >
+                  {letter}
+                </button>
+              );
+            })}
+          </div>
 
-      {filtered.length === 0 ? (
-        <div className="surface-panel rounded-[30px] px-6 py-14 text-center">
-          <p className="font-heading text-2xl text-foreground">
-            No glossary terms match that search.
-          </p>
-          <p className="mt-3 text-sm leading-7 text-muted-foreground">
-            Try a broader keyword or switch back to all concept groups.
-          </p>
-        </div>
-      ) : (
-        <div className="grid gap-5 xl:grid-cols-2">
-          {filtered.map((term) => (
-            <TermCard key={term.id} term={term} allTerms={morphologyTerms} />
-          ))}
-        </div>
-      )}
+          <div className="mt-4 max-h-[28rem] space-y-3 overflow-y-auto pr-1">
+            {filtered.map((term) => (
+              <TermListItem
+                key={term.id}
+                term={term}
+                active={term.id === selectedTerm?.id}
+                onSelect={() => setSelectedTermId(term.id)}
+              />
+            ))}
+          </div>
+        </section>
+      </aside>
+
+      <main>
+        {selectedTerm ? (
+          <TermDetailPanel
+            term={selectedTerm}
+            allTerms={morphologyTerms}
+            onSelectTerm={setSelectedTermId}
+          />
+        ) : (
+          <div className="surface-panel rounded-[30px] px-6 py-14 text-center">
+            <p className="font-heading text-2xl text-foreground">
+              No glossary terms match that search.
+            </p>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">
+              Try a broader keyword or switch back to all concept groups.
+            </p>
+          </div>
+        )}
+      </main>
     </div>
   );
 }

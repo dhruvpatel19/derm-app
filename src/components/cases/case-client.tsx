@@ -287,6 +287,87 @@ function AnswerReviewRow({ a, wasSelected, isCorrectAnswer }: { a: AnswerOption;
   );
 }
 
+function CaseContextCard({
+  icon: Icon,
+  title,
+  body,
+  accentClass,
+}: {
+  icon: typeof User;
+  title: string;
+  body: string;
+  accentClass: string;
+}) {
+  return (
+    <div className="rounded-[24px] border border-white/55 bg-white/55 p-4 shadow-card dark:border-white/8 dark:bg-white/5">
+      <div className="flex items-center gap-2">
+        <div className={accentClass}>
+          <Icon className="h-4 w-4" />
+        </div>
+        <h3 className="text-sm font-semibold text-foreground">{title}</h3>
+      </div>
+      <p className="mt-3 text-sm leading-7 text-muted-foreground">{body}</p>
+    </div>
+  );
+}
+
+function CaseWorkspaceSidebar({
+  caseData,
+  conditionName,
+  caseImages,
+  questionLabel,
+}: {
+  caseData: CaseModule;
+  conditionName: string;
+  caseImages: GalleryImageItem[];
+  questionLabel: string;
+}) {
+  return (
+    <aside className="space-y-4 xl:sticky xl:top-24 xl:self-start">
+      <div className="rounded-[26px] border border-white/55 bg-white/60 p-5 shadow-card dark:border-white/8 dark:bg-white/5">
+        <Badge variant="secondary" className="rounded-full">
+          {conditionName}
+        </Badge>
+        <h2 className="mt-3 text-xl font-bold text-foreground">{caseData.title}</h2>
+        <p className="mt-2 text-sm leading-7 text-muted-foreground">
+          {questionLabel}
+        </p>
+      </div>
+
+      {caseImages.length > 0 && (
+        <div className="rounded-[26px] border border-white/55 bg-white/60 p-4 shadow-card dark:border-white/8 dark:bg-white/5">
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <h3 className="text-sm font-semibold text-foreground">Clinical images</h3>
+            <Badge variant="outline" className="rounded-full text-xs">
+              {caseImages.length}
+            </Badge>
+          </div>
+          <ImageGallery images={caseImages} columns={2} maxImages={3} />
+        </div>
+      )}
+
+      <CaseContextCard
+        icon={User}
+        title="Patient summary"
+        body={caseData.patientSummary}
+        accentClass="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary"
+      />
+      <CaseContextCard
+        icon={ClipboardList}
+        title="Clinical history"
+        body={caseData.clinicalHistory}
+        accentClass="flex h-8 w-8 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400"
+      />
+      <CaseContextCard
+        icon={Stethoscope}
+        title="Examination"
+        body={caseData.examFindings}
+        accentClass="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
+      />
+    </aside>
+  );
+}
+
 /* ── Main Case Client ──────────────────────────────────── */
 
 export function CaseClient({
@@ -579,67 +660,93 @@ export function CaseClient({
     if (!result) return null;
 
     return (
-      <div className="flex flex-col gap-6 animate-fade-in">
-        <div className="flex items-center justify-between">
-          <Badge variant="secondary" className="rounded-full">{conditionName}</Badge>
-          <span className="text-sm text-muted-foreground">Question {qIndex + 1} of {totalQuestions}</span>
-        </div>
-        <StepDots questions={questions} results={results} qIndex={qIndex} phase={phase} />
+      <div className="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)] animate-fade-in">
+        <CaseWorkspaceSidebar
+          caseData={caseData}
+          conditionName={conditionName}
+          caseImages={caseImages}
+          questionLabel={`Reviewing question ${qIndex + 1} of ${totalQuestions}`}
+        />
 
-        <div className="rounded-xl bg-card p-5 shadow-card">
-          <div className="mb-3 flex items-center gap-2">
-            <Badge variant={result.correct ? "default" : "destructive"} className="rounded-full text-xs">{result.correct ? "Correct" : "Incorrect"}</Badge>
-            <QuestionTypeBadge type={question.type} />
+        <div className="space-y-5">
+          <div className="rounded-[26px] border border-white/55 bg-white/60 p-5 shadow-card dark:border-white/8 dark:bg-white/5">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant={result.correct ? "default" : "destructive"} className="rounded-full text-xs">
+                  {result.correct ? "Correct" : "Incorrect"}
+                </Badge>
+                <QuestionTypeBadge type={question.type} />
+              </div>
+              <span className="text-sm text-muted-foreground">
+                Question {qIndex + 1} of {totalQuestions}
+              </span>
+            </div>
+            <div className="mt-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                Question focus
+              </p>
+              <h3 className="mt-2 text-xl font-bold leading-relaxed text-foreground">
+                {question.stem}
+              </h3>
+              {question.context && (
+                <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                  {question.context}
+                </p>
+              )}
+            </div>
+            <div className="mt-4">
+              <StepDots questions={questions} results={results} qIndex={qIndex} phase={phase} />
+            </div>
           </div>
-          <h3 className="mb-1 text-base font-semibold leading-relaxed">{question.stem}</h3>
-          {question.context && <p className="mb-4 text-sm text-muted-foreground">{question.context}</p>}
 
-          <div className="flex flex-col gap-3">
-            {question.answers.map((a) => {
-              const wasSelected = question.type === "single_select" ? result.selectedSingle === a.id : question.type === "multi_select" ? result.selectedMulti.includes(a.id) : false;
-              const isCorrectAnswer = (question.type === "single_select" || question.type === "multi_select") ? a.isCorrect : false;
-              let bgClass = "border-border bg-background";
-              if (isCorrectAnswer) bgClass = "border-emerald-300 bg-emerald-100 dark:border-emerald-700 dark:bg-emerald-900/40";
-              else if (wasSelected) bgClass = "border-red-300 bg-red-100 dark:border-red-700 dark:bg-red-900/40";
+          <div className="rounded-[28px] bg-card p-5 shadow-card">
+            <div className="flex flex-col gap-3">
+              {question.answers.map((a) => {
+                const wasSelected = question.type === "single_select" ? result.selectedSingle === a.id : question.type === "multi_select" ? result.selectedMulti.includes(a.id) : false;
+                const isCorrectAnswer = (question.type === "single_select" || question.type === "multi_select") ? a.isCorrect : false;
+                let bgClass = "border-border bg-background";
+                if (isCorrectAnswer) bgClass = "border-emerald-300 bg-emerald-100 dark:border-emerald-700 dark:bg-emerald-900/40";
+                else if (wasSelected) bgClass = "border-red-300 bg-red-100 dark:border-red-700 dark:bg-red-900/40";
 
-              return (
-                <div key={a.id}>
-                  <div className={`flex items-center gap-3 rounded-xl border p-4 text-sm shadow-card ${bgClass}`}>
-                    {isCorrectAnswer && <Check className="h-5 w-5 shrink-0 text-emerald-600" />}
-                    {wasSelected && !isCorrectAnswer && <X className="h-5 w-5 shrink-0 text-red-600" />}
-                    {!isCorrectAnswer && !wasSelected && <div className="h-5 w-5 shrink-0" />}
-                    <span className="flex-1">{a.text}</span>
-                    {wasSelected && <Badge variant="outline" className="rounded-full text-[10px]">Your answer</Badge>}
+                return (
+                  <div key={a.id}>
+                    <div className={`flex items-center gap-3 rounded-xl border p-4 text-sm shadow-card ${bgClass}`}>
+                      {isCorrectAnswer && <Check className="h-5 w-5 shrink-0 text-emerald-600" />}
+                      {wasSelected && !isCorrectAnswer && <X className="h-5 w-5 shrink-0 text-red-600" />}
+                      {!isCorrectAnswer && !wasSelected && <div className="h-5 w-5 shrink-0" />}
+                      <span className="flex-1">{a.text}</span>
+                      {wasSelected && <Badge variant="outline" className="rounded-full text-[10px]">Your answer</Badge>}
+                    </div>
+                    {a.explanation && <p className="mt-1 px-3 text-xs text-muted-foreground">{a.explanation}</p>}
                   </div>
-                  {a.explanation && <p className="mt-1 px-3 text-xs text-muted-foreground">{a.explanation}</p>}
+                );
+              })}
+
+              {question.correctOrder && (
+                <div className="rounded-xl border border-blue-200 bg-blue-50 p-3 dark:border-blue-800 dark:bg-blue-950/30">
+                  <p className="mb-1 text-sm font-semibold text-blue-800 dark:text-blue-300">Correct Order:</p>
+                  <ol className="list-inside list-decimal text-sm text-blue-700 dark:text-blue-200">
+                    {question.correctOrder.map((aid) => <li key={aid}>{question.answers.find((a) => a.id === aid)?.text}</li>)}
+                  </ol>
                 </div>
-              );
-            })}
+              )}
 
-            {question.correctOrder && (
-              <div className="rounded-xl border border-blue-200 bg-blue-50 p-3 dark:border-blue-800 dark:bg-blue-950/30">
-                <p className="mb-1 text-sm font-semibold text-blue-800 dark:text-blue-300">Correct Order:</p>
-                <ol className="list-inside list-decimal text-sm text-blue-700 dark:text-blue-200">
-                  {question.correctOrder.map((aid) => <li key={aid}>{question.answers.find((a) => a.id === aid)?.text}</li>)}
-                </ol>
-              </div>
-            )}
-
-            {selectedDangerous && (
-              <div className="flex items-start gap-3 rounded-xl border border-red-300 bg-red-50 p-4 shadow-card dark:border-red-700 dark:bg-red-950/30">
-                <Skull className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
-                <div>
-                  <p className="font-semibold text-red-800 dark:text-red-300">Dangerous Choice</p>
-                  <p className="text-sm text-red-700 dark:text-red-200">The option you selected is considered a high-stakes mistake in clinical practice.</p>
+              {selectedDangerous && (
+                <div className="flex items-start gap-3 rounded-xl border border-red-300 bg-red-50 p-4 shadow-card dark:border-red-700 dark:bg-red-950/30">
+                  <Skull className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
+                  <div>
+                    <p className="font-semibold text-red-800 dark:text-red-300">Dangerous Choice</p>
+                    <p className="text-sm text-red-700 dark:text-red-200">The option you selected is considered a high-stakes mistake in clinical practice.</p>
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
 
-          <div className="mt-5 flex justify-end">
-            <Button onClick={handleNextQuestion}>
-              {qIndex + 1 < totalQuestions ? (<>Next Question <ChevronRight className="ml-1 h-4 w-4" /></>) : "View Results"}
-            </Button>
+            <div className="mt-5 flex justify-end">
+              <Button onClick={handleNextQuestion}>
+                {qIndex + 1 < totalQuestions ? (<>Next Question <ChevronRight className="ml-1 h-4 w-4" /></>) : "View Results"}
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -651,37 +758,66 @@ export function CaseClient({
   if (!question) return null;
 
   return (
-    <div className="flex flex-col gap-6 animate-fade-in">
-      <div className="flex items-center justify-between">
-        <Badge variant="secondary" className="rounded-full">{conditionName}</Badge>
-        <span className="text-sm text-muted-foreground">Question {qIndex + 1} of {totalQuestions}</span>
-      </div>
-      <StepDots questions={questions} results={results} qIndex={qIndex} phase={phase} />
+    <div className="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)] animate-fade-in">
+      <CaseWorkspaceSidebar
+        caseData={caseData}
+        conditionName={conditionName}
+        caseImages={caseImages}
+        questionLabel={`Working on question ${qIndex + 1} of ${totalQuestions}`}
+      />
 
-      <div className="rounded-xl bg-card p-5 shadow-card">
-        <div className="mb-3 flex items-center gap-2"><QuestionTypeBadge type={question.type} /></div>
-        <h3 className="mb-1 text-base font-semibold leading-relaxed">{question.stem}</h3>
-        {question.context && <p className="mb-4 text-sm text-muted-foreground">{question.context}</p>}
-
-        <div className="flex flex-col gap-3">
-          {question.type === "single_select" && (
-            <SingleSelectInput answers={question.answers} selected={singleAnswer} onSelect={setSingleAnswer} />
-          )}
-          {question.type === "multi_select" && (
-            <MultiSelectInput answers={question.answers} selected={multiAnswers} onToggle={handleToggleMulti} />
-          )}
-          {(question.type === "differential_rank" || question.type === "ordered_steps") && (
-            <OrderedInput answers={question.answers} selected={orderedAnswers} onSelect={handleOrderSelect} type={question.type} />
-          )}
+      <div className="space-y-5">
+        <div className="rounded-[26px] border border-white/55 bg-white/60 p-5 shadow-card dark:border-white/8 dark:bg-white/5">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <QuestionTypeBadge type={question.type} />
+              <Badge variant="outline" className="rounded-full text-xs">
+                Prompt-first layout
+              </Badge>
+            </div>
+            <span className="text-sm text-muted-foreground">
+              Question {qIndex + 1} of {totalQuestions}
+            </span>
+          </div>
+          <div className="mt-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+              What are you being asked?
+            </p>
+            <h3 className="mt-2 text-xl font-bold leading-relaxed text-foreground">
+              {question.stem}
+            </h3>
+            {question.context && (
+              <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                {question.context}
+              </p>
+            )}
+          </div>
+          <div className="mt-4">
+            <StepDots questions={questions} results={results} qIndex={qIndex} phase={phase} />
+          </div>
         </div>
 
-        <div className="mt-5 flex justify-between gap-2">
-          <Button variant="ghost" onClick={handleSkip} className="text-muted-foreground">
-            <SkipForward className="mr-1 h-4 w-4" /> Skip
-          </Button>
-          <Button onClick={handleSubmitAnswer} disabled={!canSubmit} className={canSubmit ? "animate-glow-pulse" : ""}>
-            Submit Answer
-          </Button>
+        <div className="rounded-[28px] bg-card p-5 shadow-card">
+          <div className="flex flex-col gap-3">
+            {question.type === "single_select" && (
+              <SingleSelectInput answers={question.answers} selected={singleAnswer} onSelect={setSingleAnswer} />
+            )}
+            {question.type === "multi_select" && (
+              <MultiSelectInput answers={question.answers} selected={multiAnswers} onToggle={handleToggleMulti} />
+            )}
+            {(question.type === "differential_rank" || question.type === "ordered_steps") && (
+              <OrderedInput answers={question.answers} selected={orderedAnswers} onSelect={handleOrderSelect} type={question.type} />
+            )}
+          </div>
+
+          <div className="mt-5 flex justify-between gap-2">
+            <Button variant="ghost" onClick={handleSkip} className="text-muted-foreground">
+              <SkipForward className="mr-1 h-4 w-4" /> Skip
+            </Button>
+            <Button onClick={handleSubmitAnswer} disabled={!canSubmit} className={canSubmit ? "animate-glow-pulse" : ""}>
+              Submit Answer
+            </Button>
+          </div>
         </div>
       </div>
     </div>

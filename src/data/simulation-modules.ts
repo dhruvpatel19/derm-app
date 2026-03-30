@@ -1115,4 +1115,113 @@ export const simulationModules: SimulationModule[] = [
     isActive: true,
     createdAt: "2026-03-29T00:00:00Z",
   },
+  {
+    id: "sim-bc-melanoma-thigh-pad",
+    title: "Ulcerated Pigmented Nodule on the Thigh",
+    type: "biopsy_choice",
+    conditionId: "melanoma",
+    imageAssetId: "a0000001-0004-4000-8000-000000000002",
+    description:
+      "A PAD-backed melanoma variant that reinforces excisional biopsy when the lesion is raised, dark, and ulcerated.",
+    objectives: [
+      "Recognize that nodular or ulcerated melanoma-pattern lesions still require full-thickness diagnostic excision",
+      "Avoid shave biopsy when melanoma staging information matters",
+      "Understand why partial sampling can understate an aggressive pigmented lesion",
+    ],
+    difficulty: "advanced",
+    caseStem:
+      "A 63-year-old man presents with a dark, dome-shaped lesion on the lateral thigh that has enlarged over several months and now bleeds after minor friction. The lesion is asymmetric, deeply pigmented, and focally ulcerated. The linked PAD image is labeled melanoma.",
+    correctChoice: "excisional",
+    choiceOptions: [
+      {
+        id: "bc-mel-thigh-excision",
+        label: "Elliptical excisional biopsy with narrow clinical margins",
+        explanation:
+          "Correct. Even when a melanoma-pattern lesion is raised or ulcerated, the preferred diagnostic approach is complete excisional biopsy with narrow clinical margins so the full lesion can be assessed histologically.",
+        isCorrect: true,
+      },
+      {
+        id: "bc-mel-thigh-punch",
+        label: "4 mm punch biopsy through the darkest or most raised focus",
+        explanation:
+          "Acceptable only if complete excision is impractical. Partial sampling risks missing the deepest focus of invasion and may understate the lesion's true stage.",
+        isCorrect: false,
+      },
+      {
+        id: "bc-mel-thigh-shave",
+        label: "Superficial shave biopsy",
+        explanation:
+          "Dangerous. Shave biopsy may transect a melanoma and prevent accurate assessment of depth, which directly affects staging and definitive treatment planning.",
+        isCorrect: false,
+        isDangerous: true,
+      },
+      {
+        id: "bc-mel-thigh-observe",
+        label: "Clinical photography and short-interval follow-up",
+        explanation:
+          "Dangerous. Evolution, elevation, and ulceration are not findings to observe passively when melanoma is in the differential.",
+        isCorrect: false,
+        isDangerous: true,
+      },
+    ],
+    explanation:
+      "This melanoma module broadens the image exposure beyond a flat irregular macule and reinforces that nodular or ulcerated morphology does not change the core principle: if melanoma is a serious concern, obtain a full-thickness excisional specimen whenever feasible.",
+    tags: ["melanoma", "pad", "biopsy technique", "nodular melanoma"],
+    isActive: true,
+    createdAt: "2026-03-29T00:00:00Z",
+  },
+  {
+    id: "sim-bc-bcc-trunk-scin",
+    title: "Superficial BCC Plaque on the Trunk",
+    type: "biopsy_choice",
+    conditionId: "basal-cell-carcinoma",
+    imageAssetId: "a0000001-0003-4000-8000-000000000002",
+    description:
+      "A SCIN-backed superficial BCC plaque that contrasts low-risk trunk management with the more classic facial nodular BCC workflow.",
+    objectives: [
+      "Recognize a superficial BCC presentation rather than only pearly nodular facial BCC",
+      "Choose a practical diagnostic biopsy for a thin plaque on a low-risk trunk site",
+      "Avoid treating a suspicious nonhealing plaque as eczema without tissue confirmation",
+    ],
+    difficulty: "intermediate",
+    caseStem:
+      "A 59-year-old patient presents with a slowly enlarging pink-red scaly plaque on the trunk that has persisted for months despite emollients. The lesion has a thin pearly thread-like border and mild surface scale, suggesting superficial basal cell carcinoma.",
+    correctChoice: "deep-shave",
+    choiceOptions: [
+      {
+        id: "bc-bcc-trunk-shave",
+        label: "Deep shave or saucerization biopsy of the plaque",
+        explanation:
+          "Correct. For a superficial BCC-suspect plaque on a low-risk trunk site, a deep shave or saucerization biopsy is a practical diagnostic technique that usually captures the epidermal and superficial dermal component well.",
+        isCorrect: true,
+      },
+      {
+        id: "bc-bcc-trunk-punch",
+        label: "Punch biopsy from the active edge",
+        explanation:
+          "Reasonable but not ideal. Punch biopsy can diagnose BCC, but a narrow punch may undersample the broader superficial plaque compared with a shave specimen.",
+        isCorrect: false,
+      },
+      {
+        id: "bc-bcc-trunk-excision",
+        label: "Full excisional biopsy with wide margins right away",
+        explanation:
+          "Usually more than is needed as an initial diagnostic step for a small superficial plaque on the trunk. Tissue diagnosis first is often sufficient before definitive treatment planning.",
+        isCorrect: false,
+      },
+      {
+        id: "bc-bcc-trunk-steroid",
+        label: "Treat empirically as eczema with topical steroids first",
+        explanation:
+          "Dangerous. A chronic enlarging plaque with a pearly border should not be managed as inflammatory dermatitis without considering skin cancer.",
+        isCorrect: false,
+        isDangerous: true,
+      },
+    ],
+    explanation:
+      "This module teaches a different BCC morphology and site context from the nasal nodular case. Low-risk trunk plaques often allow pragmatic shave-based diagnosis, but they still require tissue confirmation rather than reflex treatment as dermatitis.",
+    tags: ["bcc", "superficial bcc", "scin", "trunk lesion"],
+    isActive: true,
+    createdAt: "2026-03-29T00:00:00Z",
+  },
 ];

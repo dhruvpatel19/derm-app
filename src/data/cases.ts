@@ -1670,4 +1670,248 @@ export const cases: CaseModule[] = [
       },
     ],
   },
+  {
+    id: "case-melanoma-thigh-pad",
+    title: "A Dark Nodular Lesion on the Thigh",
+    conditionId: "c0000001-0004-4000-8000-000000000001",
+    patientSummary:
+      "A 63-year-old man presents with a dark lesion on the lateral thigh that has enlarged over several months and now occasionally bleeds after friction.",
+    clinicalHistory:
+      "The patient reports that the lesion began as a smaller dark spot but has become more elevated and noticeably darker over time. Over the last 6 to 8 weeks it has also become easier to traumatize and has bled on a few occasions. He does not recall a preceding injury. He has significant chronic sun exposure from outdoor work and has never had the lesion evaluated before.",
+    examFindings:
+      "A solitary dark brown-to-black dome-shaped nodule on the lateral thigh with asymmetric contour, focal surface ulceration, and irregular borders. The lesion appears more elevated and clinically aggressive than a flat nevus. No obvious surrounding dermatitis is present. The linked PAD image is labeled melanoma.",
+    imageAssetIds: ["a0000001-0004-4000-8000-000000000002"],
+    estimatedMinutes: 10,
+    tags: ["melanoma", "pad", "biopsy-planning"],
+    difficulty: "advanced",
+    questions: [
+      {
+        id: "case-mel-thigh-q1",
+        type: "single_select",
+        stem: "What is the most likely diagnosis?",
+        answers: [
+          {
+            id: "a",
+            text: "Nodular melanoma",
+            isCorrect: true,
+            explanation:
+              "Correct. A dark enlarging dome-shaped lesion with bleeding and ulceration is highly concerning for melanoma, particularly a nodular pattern.",
+          },
+          {
+            id: "b",
+            text: "Seborrheic keratosis",
+            isCorrect: false,
+            explanation:
+              "Incorrect. Seborrheic keratoses are often stuck-on and waxy rather than progressive, ulcerated, and clinically aggressive.",
+          },
+          {
+            id: "c",
+            text: "Dermatofibroma",
+            isCorrect: false,
+            explanation:
+              "Incorrect. Dermatofibromas are usually firm papules with a dimple sign, not an enlarging ulcerated pigmented nodule.",
+          },
+          {
+            id: "d",
+            text: "Blue nevus",
+            isCorrect: false,
+            explanation:
+              "Incorrect. A stable blue nevus can be dark, but evolution, bleeding, and ulceration push strongly toward melanoma.",
+          },
+        ],
+      },
+      {
+        id: "case-mel-thigh-q2",
+        type: "multi_select",
+        stem: "Which features make this lesion especially high-risk? (Select all that apply)",
+        answers: [
+          {
+            id: "a",
+            text: "Documented evolution in size and elevation",
+            isCorrect: true,
+            explanation:
+              "Correct. Evolution remains one of the strongest melanoma warning signs.",
+          },
+          {
+            id: "b",
+            text: "Bleeding and focal ulceration",
+            isCorrect: true,
+            explanation:
+              "Correct. Bleeding and ulceration raise concern for clinically significant malignancy.",
+          },
+          {
+            id: "c",
+            text: "Asymmetry and irregular borders",
+            isCorrect: true,
+            explanation:
+              "Correct. These are classic melanoma-pattern features.",
+          },
+          {
+            id: "d",
+            text: "A history of response to topical steroids",
+            isCorrect: false,
+            explanation:
+              "Incorrect. That would be more consistent with an inflammatory process and is not part of this case.",
+          },
+        ],
+      },
+      {
+        id: "case-mel-thigh-q3",
+        type: "single_select",
+        stem: "What is the best diagnostic next step?",
+        answers: [
+          {
+            id: "a",
+            text: "Perform an excisional biopsy with narrow clinical margins",
+            isCorrect: true,
+            explanation:
+              "Correct. When melanoma is a serious concern, full-thickness excisional biopsy is preferred so the lesion can be staged properly.",
+          },
+          {
+            id: "b",
+            text: "Perform a superficial shave biopsy",
+            isCorrect: false,
+            explanation:
+              "Incorrect. Shave biopsy risks transecting melanoma and compromising depth assessment.",
+          },
+          {
+            id: "c",
+            text: "Observe with short-interval photography only",
+            isCorrect: false,
+            explanation:
+              "Incorrect. This lesion already has multiple high-risk features that warrant immediate tissue diagnosis.",
+          },
+          {
+            id: "d",
+            text: "Treat empirically with cryotherapy",
+            isCorrect: false,
+            explanation:
+              "Incorrect. Cryotherapy is not an appropriate first step for a melanoma-suspicious lesion.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "case-bcc-superficial-trunk",
+    title: "A Persistent Scaly Plaque on the Trunk",
+    conditionId: "c0000001-0003-4000-8000-000000000001",
+    patientSummary:
+      "A 59-year-old patient presents with a pink-red plaque on the trunk that has slowly enlarged over months and has not resolved with moisturizers.",
+    clinicalHistory:
+      "The lesion was first noticed as a small pink patch but has gradually widened and become more noticeable. It is only mildly symptomatic and does not itch much, but the patient reports that it never fully clears. No clear contact trigger is identified. The patient has a history of chronic sun exposure and multiple prior actinic keratoses.",
+    examFindings:
+      "A thin erythematous scaly plaque on the trunk with a subtle thread-like pearly border. The lesion is more persistent and structurally defined than a simple eczematous patch. The linked SCIN image is labeled basal cell carcinoma.",
+    imageAssetIds: ["a0000001-0003-4000-8000-000000000002"],
+    estimatedMinutes: 8,
+    tags: ["bcc", "superficial-bcc", "scin"],
+    difficulty: "intermediate",
+    questions: [
+      {
+        id: "case-bcc-trunk-q1",
+        type: "single_select",
+        stem: "What is the most likely diagnosis?",
+        answers: [
+          {
+            id: "a",
+            text: "Superficial basal cell carcinoma",
+            isCorrect: true,
+            explanation:
+              "Correct. A persistent scaly plaque with a fine pearly edge on the trunk fits superficial BCC better than an inflammatory plaque.",
+          },
+          {
+            id: "b",
+            text: "Nummular eczema",
+            isCorrect: false,
+            explanation:
+              "Incorrect. Nummular eczema is typically more eczematous and often lacks a thin pearly thread-like border.",
+          },
+          {
+            id: "c",
+            text: "Plaque psoriasis",
+            isCorrect: false,
+            explanation:
+              "Incorrect. Psoriasis is usually thicker, more symmetric, and shows broader silvery scale.",
+          },
+          {
+            id: "d",
+            text: "Tinea corporis",
+            isCorrect: false,
+            explanation:
+              "Incorrect. Dermatophyte infection more often forms an annular lesion with central clearing and an advancing scaly edge.",
+          },
+        ],
+      },
+      {
+        id: "case-bcc-trunk-q2",
+        type: "single_select",
+        stem: "Which clue most strongly favors superficial BCC over eczema here?",
+        answers: [
+          {
+            id: "a",
+            text: "The subtle thread-like pearly border",
+            isCorrect: true,
+            explanation:
+              "Correct. That pearly border is a key clue that this is a keratinocyte carcinoma rather than routine dermatitis.",
+          },
+          {
+            id: "b",
+            text: "The fact that it is on the trunk",
+            isCorrect: false,
+            explanation:
+              "Incorrect. Location helps, but the trunk alone does not distinguish BCC from eczema.",
+          },
+          {
+            id: "c",
+            text: "The presence of mild scale",
+            isCorrect: false,
+            explanation:
+              "Incorrect. Scale is nonspecific and can be seen in inflammatory and neoplastic plaques.",
+          },
+          {
+            id: "d",
+            text: "The lesion is only mildly symptomatic",
+            isCorrect: false,
+            explanation:
+              "Incorrect. Symptom intensity alone is not the key discriminator.",
+          },
+        ],
+      },
+      {
+        id: "case-bcc-trunk-q3",
+        type: "single_select",
+        stem: "What is the best next step?",
+        answers: [
+          {
+            id: "a",
+            text: "Obtain tissue diagnosis with shave or punch biopsy, then plan definitive treatment",
+            isCorrect: true,
+            explanation:
+              "Correct. A persistent suspicious plaque should be biopsied rather than treated empirically as dermatitis.",
+          },
+          {
+            id: "b",
+            text: "Start topical steroids and reassess in a few months",
+            isCorrect: false,
+            explanation:
+              "Incorrect. That approach delays diagnosis of a likely skin cancer.",
+          },
+          {
+            id: "c",
+            text: "Reassure because trunk lesions are usually benign",
+            isCorrect: false,
+            explanation:
+              "Incorrect. Site alone does not make a chronic pearly plaque benign.",
+          },
+          {
+            id: "d",
+            text: "Treat with oral antifungals empirically",
+            isCorrect: false,
+            explanation:
+              "Incorrect. There is not enough here to justify assuming dermatophyte infection.",
+          },
+        ],
+      },
+    ],
+  },
 ];

@@ -34,6 +34,33 @@ const STAGE_LABELS = [
   "Pathology & Follow-up",
 ] as const;
 
+const STAGE_COPY = [
+  {
+    eyebrow: "Instrument setup",
+    title: "Choose the diagnostic tool",
+    helper:
+      "Select the biopsy approach that answers the clinical question without sacrificing specimen quality.",
+  },
+  {
+    eyebrow: "Comfort + specimen quality",
+    title: "Plan the anesthesia field",
+    helper:
+      "Good anesthesia should make the procedure tolerable without distorting the lesion you need to diagnose.",
+  },
+  {
+    eyebrow: "Precision targeting",
+    title: "Mark the biopsy target",
+    helper:
+      "Use the image as your clinical field and aim for representative lesional tissue rather than surrounding normal skin.",
+  },
+  {
+    eyebrow: "Interpret + act",
+    title: "Read the pathology and close the loop",
+    helper:
+      "A biopsy is only halfway through the encounter. Turn the result into safe next-step management.",
+  },
+] as const;
+
 const QUALITY_META: Record<
   "ideal" | "acceptable" | "poor" | "dangerous",
   { label: string; badgeClass: string; score: number }
@@ -147,7 +174,11 @@ function ChoiceCard({
       <div className="flex-1">
         <p className="text-sm font-bold">{label}</p>
         <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-          {submitted || selected ? explanation : `${explanation.slice(0, 100)}...`}
+          {submitted
+            ? explanation
+            : selected
+              ? "Choice staged. Rationale unlocks after you lock this step."
+              : "Select this option to stage it for the procedure."}
         </p>
       </div>
       <div className="flex shrink-0 items-center">
@@ -176,6 +207,33 @@ function getChoiceIcon(label: string) {
   }
   if (lower.includes("observe")) return ShieldCheck;
   return Scissors;
+}
+
+function CartItem({
+  label,
+  value,
+  complete,
+}: {
+  label: string;
+  value: string;
+  complete: boolean;
+}) {
+  return (
+    <div className="rounded-[20px] border border-white/55 bg-white/52 px-4 py-3 dark:border-white/8 dark:bg-white/5">
+      <div className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+        {label}
+      </div>
+      <div className="mt-2 flex items-center gap-2">
+        <div
+          className={cn(
+            "h-2.5 w-2.5 rounded-full",
+            complete ? "bg-emerald-500" : "bg-muted-foreground/35"
+          )}
+        />
+        <p className="text-sm font-semibold text-foreground">{value}</p>
+      </div>
+    </div>
+  );
 }
 
 function findMatchingZone(x: number, y: number, zones: ProcedureZone[]) {
@@ -281,6 +339,16 @@ export function InteractiveProcedureSimulation({
     targetPick,
   ]);
 
+  const currentStageCopy = STAGE_COPY[currentStep];
+  const currentStagePrompt =
+    currentStep === 0
+      ? module.equipmentPrompt
+      : currentStep === 1
+        ? module.anesthesiaPrompt
+        : currentStep === 2
+          ? module.procedureTargetPrompt
+          : module.followUpPrompt;
+
   const handleTargetClick = useCallback(
     (event: React.MouseEvent<HTMLDivElement>) => {
       if (currentStep !== 2) return;
@@ -310,8 +378,8 @@ export function InteractiveProcedureSimulation({
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-wrap items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-teal-500/10 text-primary">
             <ClipboardCheck className="h-4 w-4" />
           </div>
@@ -319,8 +387,18 @@ export function InteractiveProcedureSimulation({
             Interactive Procedure
           </Badge>
           <DifficultyBadge difficulty={module.difficulty} />
+          <Badge variant="secondary" className="rounded-full">
+            {score}/100 live score
+          </Badge>
         </div>
-        <h1 className="text-2xl font-bold">{module.title}</h1>
+        <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <h1 className="text-2xl font-bold">{module.title}</h1>
+            <p className="mt-2 max-w-3xl text-sm leading-7 text-muted-foreground">
+              {module.description}
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
@@ -355,6 +433,28 @@ export function InteractiveProcedureSimulation({
               </div>
             </CardHeader>
             <CardContent className="space-y-5">
+              <div className="rounded-[24px] border border-primary/12 bg-primary/6 p-5">
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge variant="outline" className="rounded-full">
+                    {currentStageCopy.eyebrow}
+                  </Badge>
+                  <Badge variant="secondary" className="rounded-full">
+                    {STAGE_LABELS[currentStep]}
+                  </Badge>
+                </div>
+                <h3 className="mt-3 text-xl font-bold text-foreground">
+                  {currentStageCopy.title}
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                  {currentStagePrompt}
+                </p>
+                <p className="mt-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
+                  {currentStageCopy.helper}
+                </p>
+              </div>
+
+              <div className="grid gap-5 lg:grid-cols-[minmax(0,1.08fr)_minmax(280px,0.92fr)]">
+                <div className="space-y-4">
               {imageUrl ? (
                 <div
                   ref={viewportRef}
@@ -399,14 +499,46 @@ export function InteractiveProcedureSimulation({
                 </div>
               )}
 
+                  <div className="grid gap-3 sm:grid-cols-3">
+                    <div className="rounded-[20px] border border-white/55 bg-white/55 px-4 py-3 dark:border-white/8 dark:bg-white/5">
+                      <div className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                        Current station
+                      </div>
+                      <div className="mt-2 text-sm font-semibold text-foreground">
+                        {STAGE_LABELS[currentStep]}
+                      </div>
+                    </div>
+                    <div className="rounded-[20px] border border-white/55 bg-white/55 px-4 py-3 dark:border-white/8 dark:bg-white/5">
+                      <div className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                        Target status
+                      </div>
+                      <div className="mt-2 text-sm font-semibold text-foreground">
+                        {targetPick?.zone
+                          ? QUALITY_META[targetPick.zone.quality].label
+                          : "Awaiting action"}
+                      </div>
+                    </div>
+                    <div className="rounded-[20px] border border-white/55 bg-white/55 px-4 py-3 dark:border-white/8 dark:bg-white/5">
+                      <div className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                        Feedback model
+                      </div>
+                      <div className="mt-2 text-sm font-semibold text-foreground">
+                        Hidden until locked
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+
               {currentStep === 0 && (
                 <div className="space-y-4">
-                  <div>
+                  <div className="rounded-[20px] border border-white/55 bg-white/55 p-4 dark:border-white/8 dark:bg-white/5">
                     <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                      Equipment Choice
+                      Equipment choice
                     </div>
                     <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                      {module.equipmentPrompt}
+                      Review the tool choices, stage your pick, and lock the step to reveal the rationale.
                     </p>
                   </div>
 
@@ -451,12 +583,12 @@ export function InteractiveProcedureSimulation({
 
               {currentStep === 1 && (
                 <div className="space-y-4">
-                  <div>
+                  <div className="rounded-[20px] border border-white/55 bg-white/55 p-4 dark:border-white/8 dark:bg-white/5">
                     <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                       Anesthesia
                     </div>
                     <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                      {module.anesthesiaPrompt}
+                      Preserve lesion architecture while setting up a comfortable field for biopsy.
                     </p>
                   </div>
 
@@ -504,16 +636,16 @@ export function InteractiveProcedureSimulation({
 
               {currentStep === 2 && (
                 <div className="space-y-4">
-                  <div>
+                  <div className="rounded-[20px] border border-white/55 bg-white/55 p-4 dark:border-white/8 dark:bg-white/5">
                     <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                      Lesion Targeting
+                      Lesion targeting
                     </div>
                     <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                      {module.procedureTargetPrompt}
+                      Use the clinical image like a procedure field. Click the tissue that best answers the biopsy question.
                     </p>
                   </div>
 
-                  {targetPick && (
+                  {targetPick ? (
                     <div className="rounded-xl border p-4">
                       <div className="mb-2 flex items-center gap-2">
                         <Badge
@@ -536,6 +668,10 @@ export function InteractiveProcedureSimulation({
                         {targetPick.zone?.explanation ??
                           "That click did not land on the lesion. Try again and target the actual biopsy site."}
                       </p>
+                    </div>
+                  ) : (
+                    <div className="rounded-xl border border-dashed p-4 text-sm text-muted-foreground">
+                      Awaiting target selection. Use the image workspace to mark the biopsy site.
                     </div>
                   )}
 
@@ -562,6 +698,15 @@ export function InteractiveProcedureSimulation({
 
               {currentStep === 3 && (
                 <div className="space-y-5">
+                  <div className="rounded-[20px] border border-white/55 bg-white/55 p-4 dark:border-white/8 dark:bg-white/5">
+                    <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                      Follow-up planning
+                    </div>
+                    <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                      Review the educational pathology summary, then choose the safest next step. Feedback stays hidden until you submit the plan.
+                    </p>
+                  </div>
+
                   {module.pathologyReport && (
                     <div className="rounded-2xl border border-teal-200 bg-teal-50 p-4 dark:border-teal-900 dark:bg-teal-950/20">
                       <div className="mb-2 flex items-center gap-2">
@@ -597,7 +742,7 @@ export function InteractiveProcedureSimulation({
 
                   <div>
                     <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                      Follow-up Planning
+                      Decision prompt
                     </div>
                     <p className="mt-2 text-sm leading-7 text-muted-foreground">
                       {module.followUpPrompt}
@@ -662,6 +807,8 @@ export function InteractiveProcedureSimulation({
                   )}
                 </div>
               )}
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -717,6 +864,37 @@ export function InteractiveProcedureSimulation({
                   </div>
                 );
               })}
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-xl shadow-card">
+            <CardHeader>
+              <CardTitle className="text-sm">Instrument Cart</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <CartItem
+                label="Biopsy setup"
+                value={selectedEquipment?.label ?? "Not locked yet"}
+                complete={equipmentSubmitted}
+              />
+              <CartItem
+                label="Anesthesia"
+                value={selectedAnesthesia?.label ?? "Not locked yet"}
+                complete={anesthesiaSubmitted}
+              />
+              <CartItem
+                label="Target"
+                value={
+                  targetPick?.zone?.label ??
+                  (targetPick ? "Off target - retry needed" : "Not chosen yet")
+                }
+                complete={Boolean(targetPassed)}
+              />
+              <CartItem
+                label="Follow-up"
+                value={selectedFollowUp?.label ?? "Pending pathology review"}
+                complete={followUpSubmitted}
+              />
             </CardContent>
           </Card>
 
