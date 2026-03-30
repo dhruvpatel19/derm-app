@@ -1,3 +1,22 @@
+const DEFAULT_PAD_DATASET_BASE_URL =
+  "https://storage.googleapis.com/derm-images";
+
+function normalizePadDatasetBaseUrl(value?: string): string {
+  const trimmed = value?.trim();
+
+  if (!trimmed) {
+    return process.env.NODE_ENV === "production"
+      ? DEFAULT_PAD_DATASET_BASE_URL
+      : "";
+  }
+
+  if (trimmed.startsWith("gs://")) {
+    return trimmed.replace(/^gs:\/\//, "https://storage.googleapis.com/");
+  }
+
+  return trimmed;
+}
+
 /**
  * Resolve the display URL for an image asset based on its storage mode.
  */
@@ -10,7 +29,10 @@ export function resolveImageUrl(asset: {
     return asset.externalUrl; // SCIN GCS URLs
   }
   if (asset.storageMode === "local") {
-    const padDatasetBaseUrl = process.env.NEXT_PUBLIC_PAD_DATASET_BASE_URL?.trim();
+    const padDatasetBaseUrl = normalizePadDatasetBaseUrl(
+      process.env.NEXT_PUBLIC_PAD_DATASET_BASE_URL
+    );
+
     if (padDatasetBaseUrl) {
       const preferredPadPrefix = "data/datasets/pad-ufes-20/images/";
       const legacyPadPrefix = "data/datasets/pad-ufes-20/";

@@ -227,6 +227,8 @@ Important deployment note:
   - public cloud storage via `NEXT_PUBLIC_PAD_DATASET_BASE_URL`
 - For a real hosted test environment, upload `data/datasets/pad-ufes-20/images` to a public bucket and set `NEXT_PUBLIC_PAD_DATASET_BASE_URL` in Vercel.
 - The resolver strips the local prefix `data/datasets/pad-ufes-20/images/`, so a local path like `data/datasets/pad-ufes-20/images/imgs_part_1/imgs_part_1/PAT_330_695_296.png` becomes `https://storage.googleapis.com/your-bucket/imgs_part_1/imgs_part_1/PAT_330_695_296.png`.
+- The app accepts either `https://storage.googleapis.com/your-bucket` or `gs://your-bucket` and normalizes the latter automatically.
+- This repo's production fallback is `https://storage.googleapis.com/derm-images`, so PAD images still resolve even if that env var is missing on Vercel.
 
 Example PAD asset flow:
 
