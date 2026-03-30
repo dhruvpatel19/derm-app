@@ -100,6 +100,7 @@ export const simulationModules: SimulationModule[] = [
     title: "Suspected Melanoma",
     type: "biopsy_choice",
     conditionId: "melanoma",
+    imageAssetId: "a0000001-0004-4000-8000-000000000001",
     description:
       "A patient presents with an asymmetric, irregularly bordered pigmented lesion on the upper back. Choose the most appropriate biopsy technique.",
     objectives: [
@@ -158,6 +159,7 @@ export const simulationModules: SimulationModule[] = [
     title: "Nodular BCC on Nose",
     type: "biopsy_choice",
     conditionId: "basal-cell-carcinoma",
+    imageAssetId: "a0000001-0003-4000-8000-000000000001",
     description:
       "A pearly, telangiectatic nodule on the nasal tip requires tissue diagnosis. Select the most appropriate biopsy method.",
     objectives: [
@@ -221,6 +223,7 @@ export const simulationModules: SimulationModule[] = [
     title: "Possible Actinic Keratosis",
     type: "biopsy_choice",
     conditionId: "actinic-keratosis",
+    imageAssetId: "569fe285-569f-4285-89f6-9f670a39569f",
     description:
       "A rough, scaly patch on sun-exposed skin in a patient with extensive photodamage. Determine whether biopsy is needed and which technique to use.",
     objectives: [
